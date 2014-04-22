@@ -1,4 +1,9 @@
-//Shortcut (cmd y)
+
+function alert(msg, title) {
+  title = title || "Whoops";
+  var app = [NSApplication sharedApplication];
+  [app displayDialog:msg withTitle:title];
+}
 
 function createGroup(mask){
 	var group = [[mask parentGroup] addLayerOfType: 'group'];
@@ -20,8 +25,8 @@ function createMask(group, layer){
 	[newLayer setName:"mask"]
 	[newLayer setHasClippingMask: YES];
 	
-	[[newLayer frame] setX:0]
-	[[newLayer frame] setY:0]
+	[[newLayer frame] setX:0];
+	[[newLayer frame] setY:0];
 
 	return layer;
 }
@@ -39,14 +44,22 @@ function addImageToGroup(group, imageData, mask){
 	var bitmapLayer = [group layers][1];
 	if( [bitmapLayer class] == MSBitmapLayer ) {
 		
-		[[bitmapLayer frame] setX:0]
-		[[bitmapLayer frame] setY:0]
+		[[bitmapLayer frame] setX:0];
+		[[bitmapLayer frame] setY:0];
 
-		var widthDiff = [[bitmapLayer frame] width] - [coordinates width],
-			heightDiff = [[bitmapLayer frame] height] - [coordinates height];
+		var widthDiff = [[bitmapLayer frame] width] / [coordinates width],
+			heightDiff = [[bitmapLayer frame] height] / [coordinates height];
 		
-		widthDiff >= heightDiff ? [[bitmapLayer frame] setWidth: [coordinates width]] : [[bitmapLayer frame] setWidth: [coordinates width]];
-		
+		if(widthDiff <= heightDiff){			
+			[[bitmapLayer frame] setWidth: [coordinates width]];
+			var offsetHeigh = ( [coordinates height] - [[bitmapLayer frame] height] ) / 2;
+			[[bitmapLayer frame] setY: offsetHeigh]
+		} 
+		else{
+			[[bitmapLayer frame] setHeight: [coordinates height]];	
+			var offsetWidth = ( [coordinates width] - [[bitmapLayer frame] width] ) / 2;
+			[[bitmapLayer frame] setX: offsetWidth]
+		}
 	}
 	else{
 		log("Can't find bitmap layer");
@@ -63,7 +76,6 @@ function syncProperties(src, dst, props) {
   for(var j=0, k=props.length; j < k; j++) {
     var getter = props[j];
     var setter = 'set' + capitalize(getter);
-
     dst[setter](src[getter]());
   }
 }
@@ -93,12 +105,14 @@ function copyLayerSize(src, dst) {
 
 function loadImages(imgAmount){	
 	var imagesCollection = [];
-	var fileManager = [NSFileManager defaultManager];
-	var imagesFolder = [fileManager URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask];
-	var imagesPath = [[imagesFolder objectAtIndex:0] absoluteString] + "Application Support/com.bohemiancoding.sketch3/Plugins/avatars/";			
+		fileManager = [NSFileManager defaultManager],
+		imagesFolder = [fileManager URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask],
+		imagesPath = [[imagesFolder objectAtIndex:0] absoluteString] + "Application Support/com.bohemiancoding.sketch3/Plugins/avatars/";			
+
 	imagesPath = imagesPath.replace("file://","");
-	var imagesFileNames = [fileManager contentsOfDirectoryAtPath:imagesPath error:nil]
-	var imgLen = imagesFileNames.length();
+	var imagesFileNames = [fileManager contentsOfDirectoryAtPath:imagesPath error:nil],
+		imgLen = imagesFileNames.length();
+
 	for(var i = 0; i < imgAmount; i++){
 		var r = Math.ceil(Math.random() * imgLen);
 		var fileName = imagesPath+imagesFileNames[r];
@@ -107,6 +121,7 @@ function loadImages(imgAmount){
 			imagesCollection.push(newImage);
 		}
 	}
+
 	return imagesCollection;
 }
 
@@ -117,59 +132,9 @@ function convertToString(objectString){
 	return normalString;
 }
 
-function copyLayerStyle(src, dst) {
-  var srcStyle = [src style],
-      dstStyle = [dst style],
-      srcContext = [srcStyle contextSettings],
-      dstContext = [dstStyle contextSettings],
-      collections = ['borders', 'fills', 'shadows', 'innerShadows'],
-  	  props = { 'borders': ['position', 'thickness', 'fillType', 'gradient', 'isEnabled'],
-                'fills': ['fillType', 'gradient', 'patternImage', 'noiseIntensity', 'isEnabled', 'color'],
-                'shadows': ['offsetX', 'offsetY', 'blurRadius', 'spread', 'color', 'isEnabled'],
-                'innerShadows': ['offsetX', 'offsetY', 'blurRadius', 'spread', 'color', 'isEnabled'],
-                'textLayer': ['fontSize', 'fontPostscriptName', 'textColor', 'textAlignment', 'characterSpacing', 'lineSpacing']
-              };
-
-
-  // copy layer styles
-  collections.forEach(function(collection) {
-    var srcCol = srcStyle[collection](),
-        dstCol = dstStyle[collection](),
-        propSet = props[collection];
-
-    for(var i=dstCol.length()-1; i >= 0; i--) {
-      dstCol.removeStylePartAtIndex(i);
-    }
-
-    for(var i=0, l=srcCol.length(); i < l; i++) {
-      var style = srcCol[i];
-      dstCol.addNewStylePart();
-      var newStyle = dstCol[dstCol.length() - 1];
-
-      syncProperties(style, newStyle, propSet);
-    }
-  })
-
-  // copy context settings
-  [dstContext setOpacity:[srcContext opacity]];
-  [dstContext setBlendMode:[srcContext blendMode]];
-
-  // text layer-specific properties (font size, line spacing, etc.)
-  if([dst class] === MSTextLayer) {
-    syncProperties(src, dst, props['textLayer']);
-  }
-}
-
 function newThumbnailGroup(layer,imageData){		
-
-		//Create group
 		var	group = createGroup(layer);
-		//copyLayerSize(layer, group);
-		//copyLayerPosition(layer, group);
-
-		//Move layer to group and set as mask
 		layer = createMask(group, layer);
-
 		addImageToGroup(group, imageData, layer);
 }
 
@@ -192,6 +157,7 @@ function main(){
 		if([selected class] == MSLayerGroup) updateThumbnail(selection[i], imagesCollection[i]);
 	}
 
+	if([selection count] == 0) alert('Select at least one thumbnail group or a vector shape')
 }
 main();
 
