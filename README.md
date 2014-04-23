@@ -4,6 +4,7 @@ Content Generator for Sketch
 Sketch generator allows you quickly create dummy data such as avatars, names, geo location data etc.
 
 ## Tutorial
+Comming soon...
 
 ## Installation
 Add Generator folder to the plugin folder `Library/Application Support/com.bohemiancoding.sketch3` or find it via menu option in Sketch 3 `Plugins / Reveal Plugins folder...`
