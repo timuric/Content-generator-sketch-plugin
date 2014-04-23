@@ -1,0 +1,9 @@
+//
+
+#import '../utility.js'
+#import '../loadText.js'
+#import '../data/Names/names.json'
+
+firstNames = data[22][2];
+lastNames = data[22][3];
+loadText(firstNames, lastNames);

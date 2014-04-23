@@ -1,0 +1,6 @@
+//
+
+#import 'utility.js'
+#import 'loadImage.js'
+
+loadImages('data/photos/landscape/', 'photo', 'photo')
