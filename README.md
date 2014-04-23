@@ -15,8 +15,8 @@ Add Generator folder to the plugin folder `Library/Application Support/com.bohem
 * Easier extensibility 
 * Sketch 2.x support
 
-## Feature requests and updates
+## Feature requests and feedback
 
-For feature request ping me on [twitter](twitter.com/timur_carpeev) or follow for updates
+Ping me on [twitter](http://twitter.com/timur_carpeev) or follow for updates
 
 
