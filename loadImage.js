@@ -29,10 +29,18 @@ var loadImages = function(dataPath, groupName, pictureName){
 	}
 
 	function addImageToGroup(group, imageData, mask){		
-		var imageCollection = [[MSImageCollection alloc] init];
-		var layerName = pictureName;
-		var imageData = [imageCollection addImage:imageData name:layerName convertColourspace:NO];
-		var newImage = [[MSBitmapLayer alloc] initWithImage:imageData parentFrame:[group frame] name:"picture"];
+		if(tools.majorVersion() == 3){
+			var imageCollection = [[MSImageCollection alloc] init];
+			var imageData = [imageCollection addImage:imageData name:pictureName convertColourspace:NO];
+			var newImage = [[MSBitmapLayer alloc] initWithImage:imageData parentFrame:[group frame] name: pictureName];	
+		}
+		
+		if(tools.majorVersion() == 2){
+			var newImage = [[MSBitmapLayer alloc] init]
+			[newImage setImage: imageData];
+			[group addLayer: newImage];
+		}
+		
 		var coordinates = [mask frame];	
 		var x = coordinates.x();
 		var y = coordinates.y();
@@ -97,8 +105,10 @@ var loadImages = function(dataPath, groupName, pictureName){
 			fileManager = [NSFileManager defaultManager];
 
 		if(tools.majorVersion() == 3){
-			var pluginPath = scriptPath.replace(/Plugins(.)*/, "");
+			log(scriptPath)
+			var pluginPath = scriptPath.replace(/Plugins([\w \/])*.sketchplugin$/, "");
 			imagesPath = pluginPath + "Plugins/Generator/" + dataPath;
+			log(pluginPath)
 		}
 		if(tools.majorVersion() == 2){						
 			userFolder = [fileManager URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask],
@@ -142,7 +152,7 @@ var loadImages = function(dataPath, groupName, pictureName){
 		}
 	}
 
-	function main(){
+	function main(){		
 		var allLayers = [[doc currentPage] layers],
 			imagesCollection = loadImages([selection count]);
 
