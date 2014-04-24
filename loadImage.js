@@ -105,10 +105,9 @@ var loadImages = function(dataPath, groupName, pictureName){
 			fileManager = [NSFileManager defaultManager];
 
 		if(tools.majorVersion() == 3){
-			log(scriptPath)
-			var pluginPath = scriptPath.replace(/Plugins([\w \/])*.sketchplugin$/, "");
-			imagesPath = pluginPath + "Plugins/Generator/" + dataPath;
-			log(pluginPath)
+			var pluginFolder = scriptPath.match(/Plugins\/([\w ])*/)[0] + "/";
+			var sketchPluginsPath = scriptPath.replace(/Plugins([\w \/])*.sketchplugin$/, "");
+			imagesPath =  sketchPluginsPath + pluginFolder + dataPath;
 		}
 		if(tools.majorVersion() == 2){						
 			userFolder = [fileManager URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask],
