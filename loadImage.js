@@ -106,7 +106,7 @@ var loadImages = function(dataPath, groupName, pictureName){
 
 		if(tools.majorVersion() == 3){
 			var pluginFolder = scriptPath.match(/Plugins\/([\w -])*/)[0] + "/";
-			var sketchPluginsPath = scriptPath.replace(/Plugins([\w \/])*.sketchplugin$/, "");
+			var sketchPluginsPath = scriptPath.replace(/Plugins([\w \/ -])*.sketchplugin$/, "");
 			imagesPath =  sketchPluginsPath + pluginFolder + dataPath;
 		}
 		if(tools.majorVersion() == 2){						
