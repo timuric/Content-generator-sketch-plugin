@@ -1,302 +1,101 @@
-data =[
-  {
-    "city":"New York"
-  },
-  {
-    "city":"Los Angeles"
-  },
-  {
-    "city":"Chicago "
-  },
-  {
-    "city":"Houston "
-  },
-  {
-    "city":"Phoenix "
-  },
-  {
-    "city":"Philadelphia "
-  },
-  {
-    "city":"San Antonio "
-  },
-  {
-    "city":"San Diego "
-  },
-  {
-    "city":"Dallas "
-  },
-  {
-    "city":"San Jose "
-  },
-  {
-    "city":"Detroit "
-  },
-  {
-    "city":"Jacksonville "
-  },
-  {
-    "city":"Indianapolis"
-  },
-  {
-    "city":"San Francisco "
-  },
-  {
-    "city":"Columbus "
-  },
-  {
-    "city":"Austin "
-  },
-  {
-    "city":"Memphis "
-  },
-  {
-    "city":"Fort Worth "
-  },
-  {
-    "city":"Baltimore "
-  },
-  {
-    "city":"Charlotte "
-  },
-  {
-    "city":"El Paso "
-  },
-  {
-    "city":"Boston "
-  },
-  {
-    "city":"Seattle "
-  },
-  {
-    "city":"Washington "
-  },
-  {
-    "city":"Milwaukee "
-  },
-  {
-    "city":"Denver "
-  },
-  {
-    "city":"Louisville/Jefferson County "
-  },
-  {
-    "city":"Las Vegas "
-  },
-  {
-    "city":"Nashville-Davidson "
-  },
-  {
-    "city":"Oklahoma City "
-  },
-  {
-    "city":"Portland "
-  },
-  {
-    "city":"Tucson "
-  },
-  {
-    "city":"Albuquerque "
-  },
-  {
-    "city":"Atlanta "
-  },
-  {
-    "city":"Long Beach "
-  },
-  {
-    "city":"Fresno "
-  },
-  {
-    "city":"Sacramento "
-  },
-  {
-    "city":"Mesa "
-  },
-  {
-    "city":"Kansas City "
-  },
-  {
-    "city":"Cleveland "
-  },
-  {
-    "city":"Virginia Beach "
-  },
-  {
-    "city":"Omaha "
-  },
-  {
-    "city":"Miami "
-  },
-  {
-    "city":"Oakland "
-  },
-  {
-    "city":"Tulsa "
-  },
-  {
-    "city":"Honolulu "
-  },
-  {
-    "city":"Minneapolis "
-  },
-  {
-    "city":"Colorado Springs "
-  },
-  {
-    "city":"Arlington "
-  },
-  {
-    "city":"Wichita "
-  },
-  {
-    "city":"Raleigh "
-  },
-  {
-    "city":"St. Louis "
-  },
-  {
-    "city":"Santa Ana "
-  },
-  {
-    "city":"Anaheim "
-  },
-  {
-    "city":"Tampa "
-  },
-  {
-    "city":"Cincinnati "
-  },
-  {
-    "city":"Pittsburgh "
-  },
-  {
-    "city":"Bakersfield "
-  },
-  {
-    "city":"Aurora "
-  },
-  {
-    "city":"Toledo "
-  },
-  {
-    "city":"Riverside "
-  },
-  {
-    "city":"Stockton "
-  },
-  {
-    "city":"Corpus Christi "
-  },
-  {
-    "city":"Newark "
-  },
-  {
-    "city":"Anchorage"
-  },
-  {
-    "city":"Buffalo "
-  },
-  {
-    "city":"St. Paul "
-  },
-  {
-    "city":"Lexington-Fayette"
-  },
-  {
-    "city":"Plano "
-  },
-  {
-    "city":"Fort Wayne "
-  },
-  {
-    "city":"St. Petersburg "
-  },
-  {
-    "city":"Glendale "
-  },
-  {
-    "city":"Jersey City "
-  },
-  {
-    "city":"Lincoln "
-  },
-  {
-    "city":"Henderson "
-  },
-  {
-    "city":"Chandler "
-  },
-  {
-    "city":"Greensboro "
-  },
-  {
-    "city":"Scottsdale "
-  },
-  {
-    "city":"Baton Rouge "
-  },
-  {
-    "city":"Birmingham "
-  },
-  {
-    "city":"Norfolk "
-  },
-  {
-    "city":"Madison "
-  },
-  {
-    "city":"New Orleans "
-  },
-  {
-    "city":"Chesapeake "
-  },
-  {
-    "city":"Orlando "
-  },
-  {
-    "city":"Garland "
-  },
-  {
-    "city":"Hialeah "
-  },
-  {
-    "city":"Laredo "
-  },
-  {
-    "city":"Chula Vista "
-  },
-  {
-    "city":"Lubbock "
-  },
-  {
-    "city":"Reno "
-  },
-  {
-    "city":"Akron "
-  },
-  {
-    "city":"Durham "
-  },
-  {
-    "city":"Rochester "
-  },
-  {
-    "city":"Modesto "
-  },
-  {
-    "city":"Montgomery "
-  },
-  {
-    "city":"Fremont "
-  },
-  {
-    "city":"Shreveport "
-  },
-  {
-    "city":"Arlington"
-  },
-  {
-    "city":"Glendale"
-  }
-]
+data = [
+"New York",
+"Los Angeles",
+"Chicago",
+"Houston",
+"Phoenix",
+"Philadelphia",
+"San Antonio",
+"San Diego",
+"Dallas",
+"San Jose",
+"Detroit",
+"Jacksonville",
+"Indianapolis",
+"San Francisco",
+"Columbus",
+"Austin",
+"Memphis",
+"Fort Worth",
+"Baltimore",
+"Charlotte",
+"El Paso",
+"Boston",
+"Seattle",
+"Washington",
+"Milwaukee",
+"Denver",
+"Louisville/Jefferson County",
+"Las Vegas",
+"Nashville-Davidson",
+"Oklahoma City",
+"Portland",
+"Tucson",
+"Albuquerque",
+"Atlanta",
+"Long Beach",
+"Fresno",
+"Sacramento",
+"Mesa",
+"Kansas City",
+"Cleveland",
+"Virginia Beach",
+"Omaha",
+"Miami",
+"Oakland",
+"Tulsa",
+"Honolulu",
+"Minneapolis",
+"Colorado Springs",
+"Arlington",
+"Wichita",
+"Raleigh",
+"St. Louis",
+"Santa Ana",
+"Anaheim",
+"Tampa",
+"Cincinnati",
+"Pittsburgh",
+"Bakersfield",
+"Aurora",
+"Toledo",
+"Riverside",
+"Stockton",
+"Corpus Christi",
+"Newark",
+"Anchorage",
+"Buffalo",
+"St. Paul",
+"Lexington-Fayette",
+"Plano",
+"Fort Wayne",
+"St. Petersburg",
+"Glendale",
+"Jersey City",
+"Lincoln",
+"Henderson",
+"Chandler",
+"Greensboro",
+"Scottsdale",
+"Baton Rouge",
+"Birmingham",
+"Norfolk",
+"Madison",
+"New Orleans",
+"Chesapeake",
+"Orlando",
+"Garland",
+"Hialeah",
+"Laredo",
+"Chula Vista",
+"Lubbock",
+"Reno",
+"Akron",
+"Durham",
+"Rochester",
+"Modesto",
+"Montgomery",
+"Fremont",
+"Shreveport",
+"Arlington",
+"Glendale"]
