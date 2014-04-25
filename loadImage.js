@@ -30,7 +30,7 @@ var loadImages = function(dataPath, groupName, pictureName){
 
 	function addImageToGroup(group, imageData, mask){		
 		if(tools.majorVersion() == 3){
-			var imageCollection = [[MSImageCollection alloc] init];
+			var imageCollection = [[group documentData] images];
 			var imageData = [imageCollection addImage:imageData name:pictureName convertColourspace:NO];
 			var newImage = [[MSBitmapLayer alloc] initWithImage:imageData parentFrame:[group frame] name: pictureName];	
 		}
