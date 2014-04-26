@@ -1,8 +1,6 @@
-//
-
-#import '../utility.js'
-#import '../loadText.js'
-#import '../data/Names/names.json'
+#import '../js/utility.js'
+#import '../js/loadNames.js'
+#import '../data/names/names.js'
 
 firstNames = data[22][2];
 lastNames = data[22][3];

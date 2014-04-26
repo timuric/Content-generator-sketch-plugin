@@ -8,9 +8,13 @@ Sketch generator allows you quickly create dummy data such as avatars, names, ge
 
 ![Generating thumbnails](https://raw.githubusercontent.com/timuric/Content-generator-for-sketch-app/master/tutorial/userpics.gif)
 
-#####Generating text
+#####Generating names
 
 ![Generating names](https://raw.githubusercontent.com/timuric/Content-generator-for-sketch-app/master/tutorial/names.gif)
+
+#####Generating text
+
+![Generating text](https://raw.githubusercontent.com/timuric/Content-generator-for-sketch-app/master/tutorial/lorem.gif)
 
 
 ## Installation
