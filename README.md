@@ -54,4 +54,4 @@ Any contribution is welcome, if you want to add more data sets or even your phot
 * Photo collection [Unsplash](http://unsplash.com/)
 * User pics [Uifaces](http://uifaces.com/)
 * User names [Uinames](http://uinames.com/)
-* Random data [Mockaroo](mockaroo.com)
+* Random data [Mockaroo](http://mockaroo.com/)
