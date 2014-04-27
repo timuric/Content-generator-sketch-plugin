@@ -1,5 +1,5 @@
-#import '../utility.js'
-#import '../loadText.js'
+#import '../js/utility.js'
+#import '../js/loadText.js'
 #import '../data/geo/usa/fulladdress.json'
 
-loadText(data, 'Address');
+loadText(data);
