@@ -29,7 +29,7 @@ var tools = {
 		var someContent = NSString.stringWithString_(data)
 		var path = path
 		someContent.dataUsingEncoding_(NSUTF8StringEncoding).writeToFile_atomically_(path, true)
-	}
+	},
 	pluginPath : function(){
 		if(tools.majorVersion() == 3){
 			var pluginFolder = scriptPath.match(/Plugins\/([\w -])*/)[0] + "/";
