@@ -1,0 +1,41 @@
+var description = "Example: 'Price [0-20]$ [old,new]'";
+
+var inputString = [doc askForUserInput:description initialValue:""];
+
+var numRanges = inputString.match(/\[(\d)*-(\d)*\]/g),
+	wordArrays = inputString.match(/\[[^,\[\]]*,[^,\[\]]*\]/g);
+
+log(wordArrays);
+
+for (var i = 0, l = [selection length]; i < l; i++) {
+	var layer = selection[i],
+		randomized = inputString;
+
+	if(numRanges){
+		numRanges.forEach(function(pattern){	
+			var min = pattern.match(/(\d)[^-]*/)[0],
+				max = pattern.match(/-[\d]*/)[0].replace("]","").replace("-",""), //Doing it dirty, for some reason regex doesn't work as expected in Jstalk
+				randomNum = getRandomNumber(min,max);
+
+			randomized = randomized.replace(pattern, randomNum);		
+		});
+	}
+
+	if(wordArrays){
+		wordArrays.forEach(function(pattern){	
+			var words = pattern.split(","),
+				randomIndex = Math.floor( Math.random() * words.length );			
+			randomWord = words[randomIndex].replace("[","").replace("]","");
+			
+			randomized = randomized.replace(pattern, randomWord);
+		});
+	}
+
+	if(randomized){					
+		[layer setStringValue: randomized];
+		[layer setName: randomized];
+	}
+}
+function getRandomNumber (min, max) {
+    return Math.floor( Math.random() * (max - min) + min );
+}
