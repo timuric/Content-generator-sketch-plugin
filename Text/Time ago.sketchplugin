@@ -1,0 +1,85 @@
+function timeSince(date) {
+
+    var seconds = Math.floor((new Date() - date) / 1000);
+
+    var interval = Math.floor(seconds / 31536000);
+
+    if (interval > 1) {
+        return interval + " years";
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+        return interval + " months";
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+        return interval + "d";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+        return interval + "h";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+        return interval + "m";
+    }
+    return Math.floor(seconds) + " seconds";
+}
+
+function createSelect(msg, items, selectedItemIndex){
+  selectedItemIndex = selectedItemIndex || 0
+
+  var accessory = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(0,0,100,25)]
+  [accessory addItemsWithTitles:items] 
+  [accessory selectItemAtIndex:selectedItemIndex]
+
+  var alert = [[NSAlert alloc] init]
+  [alert setMessageText:msg]
+  [alert addButtonWithTitle:'OK']
+  [alert addButtonWithTitle:'Cancel']
+  [alert setAccessoryView:accessory]
+
+  var responseCode = [alert runModal]
+  var sel = [accessory indexOfSelectedItem]
+
+  return [sel]
+}
+
+var options = ['Hour', 'Day', 'Week', 'Month', 'Year']
+var choice = createSelect('Choose date range',options, 1)
+
+var date = new Date();
+var dateItems = []
+var itemCount = 0 //Amount of items we want to generate
+
+for(var i = 0, l = [selection count]; i<l; i++){ 
+  var layer = selection[i];
+  if([layer class] == MSTextLayer) itemCount+=1;
+}
+
+if(choice == 0){
+  var hourAgo = date.getTime() - (date.getTime() - (24 * 60 * 60 * 1000));
+  setTimeSpans(hourAgo);
+}
+else if(choice == 1){
+  var dayAgo = date.getTime() - (24 * 60 * 60 * 1000);
+  setTimeSpans(dayAgo);
+}
+else log('No time range was chosen');
+
+function setTimeSpans(timeAgo){
+  timeFraction = (date.getTime() - timeAgo) / (itemCount||1);  
+
+  for(var i=0, j=1, l=[selection length]; i<l; i++){
+    var layer = selection[i];
+    if([layer class] == MSTextLayer){
+      var timeAgo = date.getTime() - (timeFraction * j*0.9) );
+      var textLabel =  timeSince(timeAgo);
+      if(textLabel){     
+        [layer setStringValue: textLabel];
+        [layer setName: textLabel];
+      }
+      j++;
+    }
+  } 
+}
