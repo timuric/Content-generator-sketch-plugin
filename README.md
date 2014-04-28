@@ -48,7 +48,7 @@ Ping me on [twitter](http://twitter.com/timur_carpeev) or follow for updates.
 Best way to submit bugs is to attach a screenshot of the console app [like so](https://www.dropbox.com/s/qsy8uafncw91t6p/Screenshot%202014-04-25%2013.06.40.png) (use "sketch" in filter box)
 
 ## Contributing
-Any contribution is welcome, if you want to add more data sets or even your photo to the set let me know. Also if you can submit better demo gifs it would be vey much apprecoated.
+Any contribution is welcome, if you want to add more data sets or even your photo to the set let me know. Also if you can submit better demo gifs it would be vey much appreciated.
 
 ## Credits
 * Photo collection [Unsplash](http://unsplash.com/)
