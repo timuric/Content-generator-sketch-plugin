@@ -1,30 +1,24 @@
-function timeSince(date) {
+function timeSince(timeStamp) {
+    var now = new Date(),
+        secondsPast = (now.getTime() - timeStamp.getTime()) / 1000;
 
-    var seconds = Math.floor((new Date() - date) / 1000);
-
-    var interval = Math.floor(seconds / 31536000);
-
-    if (interval > 1) {
-        return interval + " years ago";
+    if(secondsPast < 60){
+        return parseInt(secondsPast) + 's';
     }
-    interval = Math.floor(seconds / 2592000);
-    if (interval > 1) {
-        return interval + " months ago";
+    if(secondsPast < 3600){
+        return parseInt(secondsPast/60) + 'm';
     }
-    interval = Math.floor(seconds / 86400);
-    if (interval > 1) {
-        return interval + "d";
+    if(secondsPast <= 86400){
+        return parseInt(secondsPast/3600) + 'h';
     }
-    interval = Math.floor(seconds / 3600);
-    if (interval > 1) {
-        return interval + "h";
+    if(secondsPast > 86400){
+          day = timeStamp.getDate();
+          month = timeStamp.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ","");
+          year = timeStamp.getFullYear() == now.getFullYear() ? "" :  " "+timeStamp.getFullYear();
+          return day + " " + month + year;
     }
-    interval = Math.floor(seconds / 60);
-    if (interval > 1) {
-        return interval + "m";
-    }
-    return Math.floor(seconds) + " seconds";
 }
+
 
 function createSelect(msg, items, selectedItemIndex){
   selectedItemIndex = selectedItemIndex || 0
@@ -48,7 +42,7 @@ function createSelect(msg, items, selectedItemIndex){
 var options = ['Hour', 'Day', 'Week', 'Month', 'Year']
 var choice = createSelect('Choose date range',options, 1)
 
-var date = new Date();
+var now = new Date();
 var dateItems = []
 var itemCount = 0 //Amount of items we want to generate
 
@@ -58,35 +52,38 @@ for(var i = 0, l = [selection count]; i<l; i++){
 }
 
 if(choice == 0){
-  var hourAgo = date.getTime() - (60 * 60 * 1000);
+  var hourAgo = now.getTime() - (60 * 60 * 1000);
   setTimeSpans(hourAgo);
 }
 else if(choice == 1){
-  var dayAgo = date.getTime() - (24 * 60 * 60 * 1000);
+  var dayAgo = now.getTime() - (24 * 60 * 60 * 1000);
   setTimeSpans(dayAgo);
 }
 else if(choice == 2){
-  var dayAgo = date.getTime() - (7 * 60 * 60 * 1000);
+  var dayAgo = now.getTime() - (7 * 24 * 60 * 60 * 1000);
   setTimeSpans(dayAgo);
 }
 else if(choice == 3){
-  var dayAgo = date.getTime() - (31 * 24 * 60 * 60 * 1000);
+  var dayAgo = now.getTime() - (31 * 24 * 60 * 60 * 1000);
   setTimeSpans(dayAgo);
 }
 else if(choice == 4){
-  var dayAgo = date.getTime() - (360 * 24 * 60 * 60 * 1000);
+  var dayAgo = now.getTime() - (360 * 24 * 60 * 60 * 1000);
   setTimeSpans(dayAgo);
 }
 else log('No time range was chosen');
 
 function setTimeSpans(timeAgo){
-  timeFraction = (date.getTime() - timeAgo) / (itemCount||1);  
+  timeFraction = (now.getTime() - timeAgo) / (itemCount||1);  
 
   for(var i=0, j=1, l=[selection length]; i<l; i++){
     var layer = selection[i];
     if([layer class] == MSTextLayer){
-      var timeAgo = date.getTime() - (timeFraction * j*0.9) );
+      var timeAgo = now.getTime() - (timeFraction * j) ); //Subtract time 
+          timeAgo = new Date(timeAgo);
+
       var textLabel =  timeSince(timeAgo);
+      
       if(textLabel){     
         [layer setStringValue: textLabel];
         [layer setName: textLabel];
