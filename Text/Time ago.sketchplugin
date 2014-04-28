@@ -5,11 +5,11 @@ function timeSince(date) {
     var interval = Math.floor(seconds / 31536000);
 
     if (interval > 1) {
-        return interval + " years";
+        return interval + " years ago";
     }
     interval = Math.floor(seconds / 2592000);
     if (interval > 1) {
-        return interval + " months";
+        return interval + " months ago";
     }
     interval = Math.floor(seconds / 86400);
     if (interval > 1) {
@@ -58,11 +58,23 @@ for(var i = 0, l = [selection count]; i<l; i++){
 }
 
 if(choice == 0){
-  var hourAgo = date.getTime() - (date.getTime() - (24 * 60 * 60 * 1000));
+  var hourAgo = date.getTime() - (60 * 60 * 1000);
   setTimeSpans(hourAgo);
 }
 else if(choice == 1){
   var dayAgo = date.getTime() - (24 * 60 * 60 * 1000);
+  setTimeSpans(dayAgo);
+}
+else if(choice == 2){
+  var dayAgo = date.getTime() - (7 * 60 * 60 * 1000);
+  setTimeSpans(dayAgo);
+}
+else if(choice == 3){
+  var dayAgo = date.getTime() - (31 * 24 * 60 * 60 * 1000);
+  setTimeSpans(dayAgo);
+}
+else if(choice == 4){
+  var dayAgo = date.getTime() - (360 * 24 * 60 * 60 * 1000);
   setTimeSpans(dayAgo);
 }
 else log('No time range was chosen');
