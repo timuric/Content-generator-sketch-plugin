@@ -20,7 +20,7 @@ var loadImages = function(dataPath, groupName, pictureName){
 
 		//Set as mask
 		[newLayer setName:"mask"]
-		[newLayer setHasClippingMask: YES];
+		[newLayer setHasClippingMask: true];
 		
 		[[newLayer frame] setX:0];
 		[[newLayer frame] setY:0];
@@ -31,7 +31,7 @@ var loadImages = function(dataPath, groupName, pictureName){
 	function addImageToGroup(group, imageData, mask){		
 		if(tools.majorVersion() == 3){
 			var imageCollection = [[group documentData] images];
-			var imageData = [imageCollection addImage:imageData name:pictureName convertColourspace:NO];
+			var imageData = [imageCollection addImage:imageData name:pictureName convertColourspace:false];
 			var newImage = [[MSBitmapLayer alloc] initWithImage:imageData parentFrame:[group frame] name: pictureName];	
 		}
 		
@@ -48,7 +48,7 @@ var loadImages = function(dataPath, groupName, pictureName){
 		[group addLayer: newImage];
 
 		//Select Bitmap Image Layer and center it
-		var bitmapLayer = [group layers][1];
+		var bitmapLayer = [[group layers] objectAtIndex:1];
 		if( [bitmapLayer class] == MSBitmapLayer ) {
 			
 			[[bitmapLayer frame] setX:0];
@@ -74,7 +74,7 @@ var loadImages = function(dataPath, groupName, pictureName){
 	}
 
 	function syncProperties(src, dst, props) {
-	  for(var j=0, k=props.length; j < k; j++) {
+	  for(var j=0, k=[props count]; j < k; j++) {
 	    var getter = props[j];
 	    var setter = 'set' + capitalize(getter);
 	    dst[setter](src[getter]());
@@ -115,8 +115,9 @@ var loadImages = function(dataPath, groupName, pictureName){
 			imagesPath = imagesPath.replace("file://","");	
 		}
 		
+		log(imagesPath)
 		var imagesFileNames = [fileManager contentsOfDirectoryAtPath:imagesPath error:nil],
-			imgLen = imagesFileNames.length();
+			imgLen = [imagesFileNames count];
 
 		for(var i = 0; i < imgAmount; i++){
 			var r = Math.ceil(Math.random() * imgLen);
@@ -141,7 +142,7 @@ var loadImages = function(dataPath, groupName, pictureName){
 			mask = undefined;
 
 		for(var i = 0, l = [[group layers] count]; i < l; i++){
-			var currentLayer = [group layers][i];
+			var currentLayer = [[group layers] objectAtIndex:i];
 			if([currentLayer class] == MSBitmapLayer) imageLayer = currentLayer;
 			if([currentLayer class] == MSShapeGroup && currentLayer.hasClippingMask) mask = currentLayer;
 		}

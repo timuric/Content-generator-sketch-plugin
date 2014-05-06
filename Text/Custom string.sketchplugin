@@ -7,7 +7,7 @@ var numRanges = inputString.match(/\[(\d)*-(\d)*\]/g),
 
 log(wordArrays);
 
-for (var i = 0, l = [selection length]; i < l; i++) {
+for (var i = 0, l = [selection count]; i < l; i++) {
 	var layer = selection[i],
 		randomized = inputString;
 

@@ -76,7 +76,7 @@ else log('No time range was chosen');
 function setTimeSpans(timeAgo){
   timeFraction = (now.getTime() - timeAgo) / (itemCount||1);  
 
-  for(var i=0, j=1, l=[selection length]; i<l; i++){
+  for(var i=0, j=1, l=[selection count]; i<l; i++){
     var layer = selection[i];
     if([layer class] == MSTextLayer){
       var timeAgo = now.getTime() - (timeFraction * j) ); //Subtract time 

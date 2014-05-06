@@ -3,7 +3,7 @@ var tools = {
 		var info = [[NSBundle mainBundle] infoDictionary];
 		var items = [[(info["CFBundleShortVersionString"]) componentsSeparatedByString:"."] mutableCopy];
 
-		while(items.length() < 3)
+		while([items count] < 3)
 			[items addObject:"0"];
 
 		return items;

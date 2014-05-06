@@ -1,5 +1,5 @@
 var loadText = function(data, secondData){
-	for (var i = 0, l = [selection length]; i < l; i++) {
+	for (var i = 0, l = [selection count]; i < l; i++) {
 		var layer = selection[i];
 		var randomName = data[ Math.floor(Math.random() * data.length) ];
 
