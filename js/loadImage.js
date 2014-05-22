@@ -46,6 +46,7 @@ var loadImages = function(dataPath, groupName, pictureName){
                 var image = imagesCollection[i];
                 layer.style().fills().firstObject().setFillType(4);
                 layer.style().fills().firstObject().setPatternImage( image );
+                layer.style().fills().firstObject().setPatternFillType(1);
             }
 		}
 
