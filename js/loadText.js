@@ -6,6 +6,7 @@ var loadText = function(data, label){
 		if(randomData){			
 			[layer setStringValue: randomData];
 			[layer setName: label];
+			[layer adjustFrameToFit];
 		}		
 	}
 };
