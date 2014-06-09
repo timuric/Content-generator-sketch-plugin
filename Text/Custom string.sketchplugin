@@ -1,6 +1,6 @@
-var description = "Example: 'Price [0-20]$ [old,new]'";
+var alertMessage = "Example: 'Price [0-20]$ [old,new]'";
 
-var inputString = [doc askForUserInput:description initialValue:""];
+var inputString = [doc askForUserInput:alertMessage initialValue:""];
 
 var numRanges = inputString.match(/\[(\d)*-(\d)*\]/g),
 	wordArrays = inputString.match(/\[[^,\[\]]*,[^,\[\]]*\]/g);
