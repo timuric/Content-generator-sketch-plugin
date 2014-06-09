@@ -6,10 +6,8 @@ var loadImages = function(dataPath, groupName, pictureName){
 		var imagesCollection = [],
 			fileManager = [NSFileManager defaultManager];
 
-		if(tools.majorVersion() == 3){
-			if(scriptPath == undefined){
-				var scriptPath = sketch.scriptPath;
-			}
+		if(tools.majorVersion() == 3){			
+			var scriptPath = sketch.scriptPath;			
 			var pluginFolder = scriptPath.match(/Plugins\/([\w -])*/)[0] + "/";
 			var sketchPluginsPath = scriptPath.replace(/Plugins([\w \/ -])*.sketchplugin$/, "");
 			imagesPath =  sketchPluginsPath + pluginFolder + dataPath;
