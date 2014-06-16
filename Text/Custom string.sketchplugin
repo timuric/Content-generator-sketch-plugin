@@ -37,5 +37,7 @@ for (var i = 0, l = [selection count]; i < l; i++) {
 	}
 }
 function getRandomNumber (min, max) {
+	min = new Number(min);
+	max = new Number(max);
     return Math.floor( Math.random() * (max - min) + min );
 }
