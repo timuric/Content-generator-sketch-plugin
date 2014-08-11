@@ -1,5 +1,5 @@
 #import '../js/utility.js'
 #import '../js/replaceTextFitting.js'
-#import '../data/text/hipsum.js'
+#import '../data/text/fillerati.js'
 
-loadText(data, 'hipsum text');
+loadText(data, 'fillerati text');
