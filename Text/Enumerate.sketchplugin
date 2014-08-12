@@ -1,0 +1,40 @@
+// Sketch Enumerate (ctrl command E)
+/**
+* Enumerate text using range from 1 to number of items
+* by Andrei Shapiro 
+*/
+
+function toJSArray(a) {
+  var len = a.count(),
+      res = [];
+  while(len--){
+    res.push(a[len]);
+  }
+  return res;
+}
+
+
+function comparePosition(a, b){
+    var xa = a.frame().x();
+    var ya = a.frame().y();
+    var xb = b.frame().x();
+    var yb = b.frame().y();
+    
+    if (ya < yb) return -1;
+    if (ya > yb) return 1;
+    if (xa < xb) return -1;
+    if (xb < xa) return 1;
+    return 0;
+};
+
+
+var sel = toJSArray(selection).sort(comparePosition);
+
+for (var i=0; i < sel.length; i++) {
+    var layer = sel[i];
+    var value = (i + 1).toString();
+    layer.name = value;
+    layer.setStringValue(value);
+    layer.adjustFrameToFit();
+
+}
