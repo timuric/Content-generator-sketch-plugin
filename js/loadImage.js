@@ -11,13 +11,7 @@ var loadImages = function(dataPath, groupName, pictureName){
 			var pluginFolder = scriptPath.match(/Plugins\/([\w -])*/)[0] + "/";
 			var sketchPluginsPath = scriptPath.replace(/Plugins([\w \/ -])*.sketchplugin$/, "");
 			imagesPath =  sketchPluginsPath + pluginFolder + dataPath;
-		}
-		if(tools.majorVersion() == 2){						
-			userFolder = [fileManager URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask],
-			imagesPath = [[userFolder objectAtIndex:0] absoluteString] + "Application Support/com.bohemiancoding.sketch3/Plugins/avatars/";			
-			imagesPath = imagesPath.replace("file://","");	
-		}
-		
+		}	
 		log(imagesPath)
 		var imagesFileNames = [fileManager contentsOfDirectoryAtPath:imagesPath error:nil],
 			imgLen = [imagesFileNames count];
@@ -42,8 +36,15 @@ var loadImages = function(dataPath, groupName, pictureName){
 			var layer = selection[i];
             if([layer class] == MSShapeGroup){
                 var image = imagesCollection[i];
-                layer.style().fills().firstObject().setFillType(4);
-                layer.style().fills().firstObject().setPatternImage( image );
+                var fill = layer.style().fills().firstObject();
+                fill.setFillType(4);                
+                if(tools.minorVersion() >= 1){
+                	var coll = layer.style().fills().firstObject().documentData().images();              
+                	[fill setPatternImage:image collection:coll]
+                }
+                else{
+                	layer.style().fills().firstObject().setPatternImage( image ).collection(this);                	
+                }                                                
                 layer.style().fills().firstObject().setPatternFillType(1);
             }
 		}
