@@ -1,7 +1,7 @@
-// Sketch Enumerate (ctrl command E)
+// Sketch Enumerate
 /**
 * Enumerate text using range from 1 to number of items
-* Contributors: Andrei Shapiro, Ale Muñoz
+* Contributors: Andrei Shapiro, Ale Muñoz, Matt McManus
 */
 
 function toJSArray(a) {
@@ -15,8 +15,8 @@ function toJSArray(a) {
 
 function comparePosition(a, b){
     var THRESHOLD = 5; // allowable shift of text layer from ideal structures position
-    var ydiff = b.frame().y() - a.frame().y();
-    var xdiff = b.frame().x()) - a.frame().x();
+    var ydiff = b.absoluteRect().y() - a.absoluteRect().y();
+    var xdiff = b.absoluteRect().x()) - a.absoluteRect().x();
     
     if (ydiff > THRESHOLD) return -1;
     if (ydiff < -THRESHOLD) return 1;
@@ -25,14 +25,43 @@ function comparePosition(a, b){
     return 0;
 };
 
-//TODO: select only text and text inside groups
-var itemsNumber =selection.count();
-var sel = toJSArray(selection).sort(comparePosition);
+function isGroup(layer) {
+  return [layer isMemberOfClass:[MSLayerGroup class]] || [layer isMemberOfClass:[MSArtboardGroup class]]
+}
+
+function isText(layer) {
+  return [layer isMemberOfClass:[MSTextLayer class]]
+}
+
+function collectChildren(layers, sel) {
+  for (var x = 0; x < [layers count]; x++){
+    var childLayer = layers.array()[x];
+    if (isText(childLayer)) sel.push(childLayer); // process only text layers
+  }
+}
+
+
+var newSelection = []
+
+// look through selection to lookup inside groups and gather layers
+var loop = [selection objectEnumerator]
+while (layer = [loop nextObject]) {
+  if (isGroup(layer)) {
+      collectChildren([layer layers], newSelection);
+  } else {
+      if (isText(layer)) newSelection.push(layer);  // process only text layers
+  }
+}
+
+var itemsNumber = newSelection.length;
+var selSorted = newSelection.sort(comparePosition);
 
 for (var i = 0; i < itemsNumber; i++) {
-    var layer = sel[i];
+    var layer = selSorted[i];
     var value = (i + 1).toString();
-    layer.name = value;
+    layer.name = layer.absoluteRect().x() + ", " + layer.absoluteRect().y();//value;
     layer.setStringValue(value);
     layer.adjustFrameToFit(); //TODO: maintain  adjustability even if user pressed Fixed. Any idea?
 }
+
+
