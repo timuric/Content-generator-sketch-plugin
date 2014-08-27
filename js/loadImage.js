@@ -38,18 +38,19 @@ var loadImages = function(dataPath, groupName, pictureName){
                 var image = imagesCollection[i];
                 var fill = layer.style().fills().firstObject();
                 fill.setFillType(4);                
+                log(tools.minorVersion())
                 if(tools.minorVersion() >= 1){
                 	var coll = layer.style().fills().firstObject().documentData().images();              
                 	[fill setPatternImage:image collection:coll]
                 }
                 else{
-                	layer.style().fills().firstObject().setPatternImage( image ).collection(this);                	
+                	layer.style().fills().firstObject().setPatternImage( image );
                 }                                                
                 layer.style().fills().firstObject().setPatternFillType(1);
             }
 		}
 
-		if([selection count] == 0) alert('Select at least one thumbnail group or a vector shape');
+		if([selection count] == 0) alert('Select at least one vector shape');
 	}
 	main();
 }
