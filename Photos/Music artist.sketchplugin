@@ -1,4 +1,4 @@
 #import '../js/utility.js'
 #import '../js/loadImage.js'
 
-loadImages('data/Photos/Music/', 'music artist', 'artist photo')
+loadImages('data/photos/Music/', 'music artist', 'artist photo')
