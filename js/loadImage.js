@@ -17,7 +17,7 @@ var loadImages = function(dataPath, groupName, pictureName){
 			imgLen = [imagesFileNames count];
 
 		for(var i = 0; i < imgAmount; i++){
-			var r = Math.ceil(Math.random() * imgLen);
+			var r = Math.floor(Math.random() * imgLen);
 			var fileName = imagesPath+imagesFileNames[r];
 			if ([fileManager fileExistsAtPath: fileName]) {				
 				var newImage = [[NSImage alloc] initWithContentsOfFile:fileName];			
