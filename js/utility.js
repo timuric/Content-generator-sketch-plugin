@@ -25,7 +25,7 @@ var tools = {
 		return normalString;
 	},
 
-	saveFile : function(path,data){		
+	saveFile : function(path,data){
 		var someContent = NSString.stringWithString_(data)
 		var path = path
 		someContent.dataUsingEncoding_(NSUTF8StringEncoding).writeToFile_atomically_(path, true)
@@ -35,7 +35,7 @@ var tools = {
 			var pluginFolder = scriptPath.match(/Plugins\/([\w -])*/)[0] + "/";
 			var sketchPluginsPath = scriptPath.replace(/Plugins([\w \/ -])*.sketchplugin$/, "");
 			return pluginFolder;
-		}		
+		}
 	}
 };
 
