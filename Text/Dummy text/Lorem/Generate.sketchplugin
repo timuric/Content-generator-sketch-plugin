@@ -1,5 +1,5 @@
-#import '../js/utility.js'
-#import '../js/loadText.js'
-#import '../data/text/lorem.js'
+#import '../../../js/utility.js'
+#import '../../../js/loadText.js'
+#import '../../../data/text/lorem.js'
 
 loadText(data, 'lorem text');

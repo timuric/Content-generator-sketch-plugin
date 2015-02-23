@@ -1,5 +1,5 @@
-#import '../js/utility.js'
-#import '../js/loadText.js'
-#import '../data/persona/phones.js'
+#import '../../js/utility.js'
+#import '../../js/loadText.js'
+#import '../../data/persona/phones.js'
 
 loadText(data, 'phone number');

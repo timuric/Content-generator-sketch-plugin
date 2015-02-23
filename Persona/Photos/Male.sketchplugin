@@ -1,4 +1,4 @@
-#import '../js/utility.js'
-#import '../js/loadImage.js'
+#import '../../js/utility.js'
+#import '../../js/loadImage.js'
 
 loadImages('data/photos/persona/men/', 'user pic', 'avatar')
