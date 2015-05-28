@@ -1,0 +1,5 @@
+#import '../../../js/utility.js'
+#import '../../../js/replaceTextFitting.js'
+#import '../../../data/text/my-text.js'
+
+loadText(data, 'my text');
