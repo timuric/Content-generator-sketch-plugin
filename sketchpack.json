@@ -1,5 +1,6 @@
 {
     "name": "Content generator",
     "description": "Sketch app plugin for generating dummy data such as avatars, names, photos, geo data etc",
-    "tags": ["content", "data", "generator", "dummy","lorem ipsum","geo","avatars","user profile"]
+    "tags": ["content", "data", "generator", "dummy","lorem ipsum","geo","avatars","user profile"],
+    "version": "0.5",
 }
