@@ -16,6 +16,12 @@ Sketch generator allows you quickly create dummy data such as avatars, names, ge
 
 ![Generating text](https://raw.githubusercontent.com/timuric/Content-generator-for-sketch-app/master/tutorial/lorem.gif)
 
+## Adding custom images
+
+1. Reveal plugins folder
+2. Open Content Generator plugin folder
+3. Add your photos to Data > Photos > my-photos
+
 
 ## Installation
 Add Generator folder to the plugin folder `/Library/Application Support/com.bohemiancoding.sketch3` or '~/Library/Containers/com.bohemiancoding.sketch3/Data/Library/Application Support/com.bohemiancoding.sketch3/' or find it via menu option in Sketch 3 `Plugins / Reveal Plugins folder...`
