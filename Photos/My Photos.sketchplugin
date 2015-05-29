@@ -1,0 +1,4 @@
+#import '../js/utility.js'
+#import '../js/loadImage.js'
+
+loadImages('data/photos/my-photos/', 'photo', 'photo')
