@@ -1,43 +1,56 @@
-var alertMessage = "Example: 'Price [0-20]$ [old,new]'";
-
-var inputString = [doc askForUserInput:alertMessage initialValue:""];
-
-var numRanges = inputString.match(/\[(\d)*-(\d)*\]/g),
-	wordArrays = inputString.match(/\[[^,\[\]]*,[^,\[\]]*\]/g);
-
-log(wordArrays);
-
-for (var i = 0, l = [selection count]; i < l; i++) {
-	var layer = selection[i],
-		randomized = inputString;
-
-	if(numRanges){
-		numRanges.forEach(function(pattern){	
-			var min = pattern.match(/(\d)[^-]*/)[0],
-				max = pattern.match(/-[\d]*/)[0].replace("]","").replace("-",""), //Doing it dirty, for some reason regex doesn't work as expected in Jstalk
-				randomNum = getRandomNumber(min,max);
-
-			randomized = randomized.replace(pattern, randomNum);		
-		});
-	}
-
-	if(wordArrays){
-		wordArrays.forEach(function(pattern){	
-			var words = pattern.split(","),
-				randomIndex = Math.floor( Math.random() * words.length );			
-			randomWord = words[randomIndex].replace("[","").replace("]","");
-			
-			randomized = randomized.replace(pattern, randomWord);
-		});
-	}
-
-	if(randomized){					
-		[layer setStringValue: randomized];
-		[layer setName: randomized];
-	}
+if([selection count] == 0) {
+	[doc showMessage:"Select at least one text layer"];
 }
-function getRandomNumber (min, max) {
-	min = new Number(min);
-	max = new Number(max);
-    return Math.floor( Math.random() * (max - min) + min );
+else exec();
+
+function exec(){
+	var alertMessage = "Example: Price [0-20]$ [old,new]";
+
+	var inputString = [doc askForUserInput:alertMessage initialValue:""];
+
+	var regexBlocks = new RegExp("\\[[^\\]]*");
+
+	var blocks = [];
+	var opening = inputString.indexOf("[");
+	var closing = inputString.indexOf("]", opening);
+	if(opening != -1 && closing != -1) blocks.push(inputString.slice(0, opening));
+	else blocks.push(inputString);
+
+	while(opening != -1 && closing != -1){
+		blocks.push(inputString.slice(opening+1, closing));
+		opening = inputString.indexOf("[", closing);
+		blocks.push(inputString.slice(closing+1, opening));
+		closing = inputString.indexOf("]", opening);
+	}
+
+	blocks = blocks.map(function(block){
+		if(block.match(/\d+-\d+/)){ //Number range
+			var min = block.match(/\d+/)[0],
+				max = block.match(/-[\d]*/)[0].replace("]","").replace("-","");
+				return getRandomNumber.bind(null, min, max);
+		}
+		else if(block.match(",")) { //Words list
+			var words = block.split(",");
+			return getRandomWord.bind(null, words);
+		}
+		else return block;
+	});
+
+	function getRandomNumber (min, max) {
+		min = new Number(min);
+		max = new Number(max);
+	    return Math.floor( Math.random() * (max - min) + min );
+	}
+	function getRandomWord (words) { 
+		var index = getRandomNumber(0,words.length);
+		return words[index] 
+	};
+
+	for (var i = 0, l = [selection count]; i < l; i++) { //Loop every selected layer
+		var layer = selection[i];
+		var generatedString = blocks.map(function(block){ return typeof block === "function" ? block() : block; }).join("");
+		[layer setStringValue: generatedString];
+		[layer setName: generatedString];
+	}
+
 }
