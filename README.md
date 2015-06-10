@@ -31,19 +31,16 @@ Which would result in "$321,34 old" or "$12,75 new"
 
 ## Adding custom images
 
-1. Reveal plugins folder
+1. In Sketch app `Plugins > Reveal Plugins folder...`
 2. Open Content Generator plugin folder
 3. Add your photos to Data > Photos > my-photos
-
 
 ## Installation
 Add Generator folder to the plugin folder `/Library/Application Support/com.bohemiancoding.sketch3` or '~/Library/Containers/com.bohemiancoding.sketch3/Data/Library/Application Support/com.bohemiancoding.sketch3/' or find it via menu option in Sketch 3 `Plugins / Reveal Plugins folder...`
 
 ## Upcoming features
-* Shortcut for repeating last action
 * More types of data
 * Fetch content directly from different online sources 
-* Installation and customization panel
 * Easier extensibility
 
 ## Feature requests, bugs & feedback
