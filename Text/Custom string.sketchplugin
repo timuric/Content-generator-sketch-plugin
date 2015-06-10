@@ -4,12 +4,12 @@ if([selection count] == 0) {
 else exec();
 
 function exec(){
-	var alertMessage = "Example: Price [0-20]$ [old,new]";
+	var alertMessage = "Example: Price [0-20]$ [old~new]";
 
 	var inputString = [doc askForUserInput:alertMessage initialValue:""];
 
 	var regexBlocks = new RegExp("\\[[^\\]]*");
-	var regexWords = new RegExp("\\[[^,]+,.+\\]");
+	var regexWords = new RegExp("\\[[^~]+~.+\\]");
 	var regexNumberRange = new RegExp("\\[\\d+-\\d+\\]");
 
 	var blocks = [];
@@ -34,7 +34,7 @@ function exec(){
 		else if(block.match(regexWords)) { //Words list
 			block = block.replace("[","");
 			block = block.replace("]","");
-			var words = block.split(",");
+			var words = block.split("~");
 			return getRandomWord.bind(null, words);
 		}
 		else return block;
