@@ -9,6 +9,8 @@ function exec(){
 	var inputString = [doc askForUserInput:alertMessage initialValue:""];
 
 	var regexBlocks = new RegExp("\\[[^\\]]*");
+	var regexWords = new RegExp("\\[[^,]+,.+\\]");
+	var regexNumberRange = new RegExp("\\[\\d+-\\d+\\]");
 
 	var blocks = [];
 	var opening = inputString.indexOf("[");
@@ -17,19 +19,21 @@ function exec(){
 	else blocks.push(inputString);
 
 	while(opening != -1 && closing != -1){
-		blocks.push(inputString.slice(opening+1, closing));
+		blocks.push(inputString.slice(opening, closing+1));
 		opening = inputString.indexOf("[", closing);
 		blocks.push(inputString.slice(closing+1, opening));
 		closing = inputString.indexOf("]", opening);
 	}
 
 	blocks = blocks.map(function(block){
-		if(block.match(/\d+-\d+/)){ //Number range
+		if(block.match(regexNumberRange)){ //Number range
 			var min = block.match(/\d+/)[0],
 				max = block.match(/-[\d]*/)[0].replace("]","").replace("-","");
-				return getRandomNumber.bind(null, min, max);
+				return getRandomNumber.bind(null, min,max);
 		}
-		else if(block.match(",")) { //Words list
+		else if(block.match(regexWords)) { //Words list
+			block = block.replace("[","");
+			block = block.replace("]","");
 			var words = block.split(",");
 			return getRandomWord.bind(null, words);
 		}
