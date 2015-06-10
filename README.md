@@ -16,7 +16,7 @@ Sketch generator allows you quickly create dummy data such as avatars, names, ge
 
 ![Generating text](https://raw.githubusercontent.com/timuric/Content-generator-for-sketch-app/master/tutorial/lorem.gif)
 
-###Generating strings
+#####Generating strings
 ![custom string](https://cloud.githubusercontent.com/assets/5709624/8092928/c18d6d76-0fbd-11e5-962d-417165cc1a2d.gif)
 
 You can create a custom string by combining any of these options:
