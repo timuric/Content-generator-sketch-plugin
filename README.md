@@ -12,9 +12,21 @@ Sketch generator allows you quickly create dummy data such as avatars, names, ge
 
 ![Generating names](https://raw.githubusercontent.com/timuric/Content-generator-for-sketch-app/master/tutorial/names.gif)
 
-#####Generating text
+#####Generating dummy text
 
 ![Generating text](https://raw.githubusercontent.com/timuric/Content-generator-for-sketch-app/master/tutorial/lorem.gif)
+
+###Generating strings
+![custom string](https://cloud.githubusercontent.com/assets/5709624/8092928/c18d6d76-0fbd-11e5-962d-417165cc1a2d.gif)
+
+You can create a custom string by combining any of these options:
+- plain text (example: banana)
+- random number from range (example: [0-20] )
+- random item from an array (example: [new,used,old] )
+
+An example of a combined string: $[0-999],[10-99] [new,used,old]
+Which would result in "$321,34 old" or "$12,75 new"
+
 
 ## Adding custom images
 
