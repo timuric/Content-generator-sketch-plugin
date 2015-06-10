@@ -36,7 +36,9 @@ Which would result in "$321,34 old" or "$12,75 new"
 3. Add your photos to Data > Photos > my-photos
 
 ## Installation
-Add Generator folder to the plugin folder `/Library/Application Support/com.bohemiancoding.sketch3` or '~/Library/Containers/com.bohemiancoding.sketch3/Data/Library/Application Support/com.bohemiancoding.sketch3/' or find it via menu option in Sketch 3 `Plugins / Reveal Plugins folder...`
+1. Download Zip and Extract it to a folder
+2. In Sketch app `Plugins > Reveal Plugins folder...`
+3. Place the extracted folder directly to the Plugins folder (nesting might not work atm)
 
 ## Upcoming features
 * More types of data
