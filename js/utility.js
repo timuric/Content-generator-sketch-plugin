@@ -1,5 +1,5 @@
 var tools = {
-	appVersion: "62",
+	appVersion: "0.6.4",
 	versionComponents : function() {
 		var info = [[NSBundle mainBundle] infoDictionary];
 		var items = [[(info["CFBundleShortVersionString"]) componentsSeparatedByString:"."] mutableCopy];
@@ -67,7 +67,6 @@ function alert(msg, title) {
 
 function deleteLayer(layer){
 	var parent = [layer parentGroup];
-	//log(parent.removeLayer());
 	if(parent) [parent removeLayer: layer];
 }
 
