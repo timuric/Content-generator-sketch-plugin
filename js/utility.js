@@ -1,4 +1,5 @@
 var tools = {
+	appVersion: "0.6.4",
 	versionComponents : function() {
 		var info = [[NSBundle mainBundle] infoDictionary];
 		var items = [[(info["CFBundleShortVersionString"]) componentsSeparatedByString:"."] mutableCopy];
@@ -36,6 +37,25 @@ var tools = {
 			var sketchPluginsPath = scriptPath.replace(/Plugins([\w \/ -])*.sketchplugin$/, "");
 			return pluginFolder;
 		}		
+	},
+	getJSONFromURL: function(url) {
+		var request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]],
+			response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil],
+			responseObj = [NSJSONSerialization JSONObjectWithData:response options:nil error:nil]
+		return responseObj
+	},
+	checkPluginUpdate: function(){		
+		try{
+			var response = this.getJSONFromURL('https://raw.githubusercontent.com/timuric/Content-generator-sketch-plugin/master/sketchpack.json')
+			if(response && response.version){
+				var rgx = new RegExp("\\d","g");
+				var removeVersion = parseFloat(response.version.match(rgx).join(""))
+				var installedVersion = parseFloat(this.appVersion.match(rgx).join(""))
+				if (removeVersion > installedVersion) [doc showMessage:"New plugin update is available! Visit github.com/timuric/Content-generator-sketch-plugin"]
+			}		
+		}catch(e){
+			log(e);
+		}
 	}
 };
 
@@ -47,7 +67,6 @@ function alert(msg, title) {
 
 function deleteLayer(layer){
 	var parent = [layer parentGroup];
-	//log(parent.removeLayer());
 	if(parent) [parent removeLayer: layer];
 }
 

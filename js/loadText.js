@@ -9,4 +9,5 @@ var loadText = function(data, label){
 			[layer adjustFrameToFit];
 		}		
 	}
+	tools.checkPluginUpdate();
 };

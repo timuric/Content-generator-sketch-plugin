@@ -1,0 +1,69 @@
+#import '../js/utility.js'
+
+var layers = selection;
+var regexpRename = regexpRename || {};
+
+regexpRename.createCheckbox = function ( label, value, flag ) {
+	
+	flag = ( flag == false ) ? NSOffState : NSOnState;
+
+	var checkbox = NSButton.alloc().initWithFrame( NSMakeRect( 0, 0, 300, 18 ) );
+	checkbox.setButtonType( NSSwitchButton );
+	checkbox.setTitle( label );
+	checkbox.setTag( value );
+	checkbox.setState( flag );
+
+	return checkbox;
+}
+
+// main()
+if ( layers.count() > 0 ) {
+
+	var userInput = COSAlertWindow.new();
+
+	userInput.setMessageText("Rename Text Layers");
+
+	userInput.addTextLabelWithValue("Find What:");
+	userInput.addTextFieldWithValue("");
+
+	userInput.addAccessoryView( regexpRename.createCheckbox( 'regex', 'regex', false ) );
+	userInput.addAccessoryView( regexpRename.createCheckbox( 'global match', 'g', true ) );
+	userInput.addAccessoryView( regexpRename.createCheckbox( 'ignore case', 'i', true ) );
+
+	userInput.addTextLabelWithValue("Replace With:");
+	userInput.addTextFieldWithValue("");
+
+	userInput.addButtonWithTitle('Replace');
+	userInput.addButtonWithTitle('Cancel');
+
+	var responseCode = userInput.runModal();
+
+	if ( 1000 == responseCode ) {
+		log('run 1')
+
+		var flag = '';
+		if ( userInput.viewAtIndex(3).state() ) flag += 'g';
+		if ( userInput.viewAtIndex(4).state() ) flag += 'i';
+
+		var find       = userInput.viewAtIndex(2).state() ? new RegExp( userInput.viewAtIndex(1).stringValue(), flag ) : userInput.viewAtIndex(1).stringValue();
+		var replace    = userInput.viewAtIndex(6).stringValue();
+		var matchTimes = 0;
+
+		log(userInput.viewAtIndex(2).state())
+
+		for ( var i = 0; i < selection.count(); i++ ) {
+			var layer = selection[i];
+			var string = layer.stringValue();
+			if ( string.match( find ) ){
+				matchTimes++;	
+				layer.setStringValue(string.replace(find, replace));
+			} 
+		};
+
+		doc.showMessage( 'Replaced text in ' + matchTimes + ' layers' );
+
+	}
+
+}
+
+tools.checkPluginUpdate();
