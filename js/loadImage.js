@@ -13,11 +13,11 @@ var loadImages = function(dataPath, groupName, pictureName){
 		var selectedPaths = [];
 
 
-		if(imgAmount > imageCount){
+		if(imgAmount > imageCount){ //Load images in sequential order
 			while(imgAmount--) {
 				var index = Math.floor(Math.random() * imageCount);
 				do {
-					index = index > imageCount ? 0 : index + 1;
+					index = index >= imageCount ? 0 : index + 1;
 					var fileName = imagesFileNames[index];
 					var filePath = imagesPath + fileName;			
 				} while(![fileManager fileExistsAtPath: filePath] || fileName == '.DS_Store')
@@ -25,8 +25,8 @@ var loadImages = function(dataPath, groupName, pictureName){
 				selectedPaths.push(filePath);
 			}
 		} 
-		else{
-			while(imgAmount--) {
+		else{	//Load unique images
+			while(imgAmount--) {  
 				do {
 					var index = Math.floor(Math.random() * imageCount);
 					var fileName = imagesFileNames[index];
@@ -67,6 +67,8 @@ var loadImages = function(dataPath, groupName, pictureName){
 		}
 
 		if([selection count] == 0) [doc showMessage:'Select at least one vector shape'];;
+
+		tools.checkPluginUpdate();
 	}
 	main();
 }

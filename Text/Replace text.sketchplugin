@@ -1,3 +1,5 @@
+#import '../js/utility.js'
+
 var layers = selection;
 var regexpRename = regexpRename || {};
 
@@ -63,3 +65,5 @@ if ( layers.count() > 0 ) {
 	}
 
 }
+
+tools.checkPluginUpdate();

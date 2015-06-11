@@ -1,3 +1,5 @@
+#import '../js/utility.js'
+
 // Sketch Enumerate
 /**
 * Enumerate text using range from 1 to number of items
@@ -64,4 +66,5 @@ for (var i = 0; i < itemsNumber; i++) {
     layer.adjustFrameToFit(); //TODO: maintain  adjustability even if user pressed Fixed. Any idea?
 }
 
+tools.checkPluginUpdate();
 
