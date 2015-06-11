@@ -60,5 +60,3 @@ Any contribution is welcome, if you want to add more data sets or even your phot
 * Random data [Mockaroo](http://mockaroo.com/)
 
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/timuric/content-generator-sketch-plugin/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
