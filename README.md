@@ -50,8 +50,12 @@ Which would result in "$321,34 old" or "$12,75 new"
 Ping me on [twitter](http://twitter.com/timur_carpeev) or follow for updates.
 Best way to submit bugs is to attach a screenshot of the console app [like so](https://www.dropbox.com/s/e3g4g49j1lwkp5j/Screenshot%202014-06-09%2022.33.03.png) (use "sketch" in filter box)
 
-## Contributing
-Any contribution is welcome, if you want to add more data sets or even your photo to the set let me know. Also if you can submit better demo gifs it would be vey much appreciated.
+## Contributors
+Author [Timur Carpeev](https://twitter.com/timur_carpeev)
+
+Number plugins [Liu Liu](https://twitter.com/auxdesigner)
+
+And [others](https://github.com/timuric/Content-generator-sketch-plugin/graphs/contributors)
 
 ## Credits
 * Photo collection [Unsplash](http://unsplash.com/)
