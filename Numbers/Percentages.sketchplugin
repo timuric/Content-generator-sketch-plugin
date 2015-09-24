@@ -1,0 +1,4 @@
+#import '../js/utility.js'
+#import '../js/loadPercentages.js'
+
+loadText();
