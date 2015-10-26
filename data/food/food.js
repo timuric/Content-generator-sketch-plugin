@@ -18,6 +18,7 @@ data = [
 	"Grapes",
 	"Honey",
 	"Peanut Butter",
+	"Steak",
 	"Strawberries",
 	"Fried Egg",
 	"Scrambled Eggs",

@@ -2,4 +2,4 @@
 #import '../../js/loadImage.js'
 
 
-loadImages('data/photos/persona/any/', 'user pic', 'avatar')
+loadImages('data/photos/persona/', 'any user pic', 'avatar')
