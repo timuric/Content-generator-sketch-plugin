@@ -1,0 +1,5 @@
+#import '../../js/utility.js'
+#import '../../js/loadImage.js'
+
+
+loadImages('data/photos/persona/', 'any user pic', 'avatar')

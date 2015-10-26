@@ -11,15 +11,32 @@ var loadImages = function(dataPath, groupName, pictureName){
 		var imagesFileNames = [fileManager contentsOfDirectoryAtPath:imagesPath error:nil];
 		var imageCount = [imagesFileNames count] -1;
 		var selectedPaths = [];
-
+		var anyImage = false;
+		var gender = '';
+		if (groupName == 'any user pic'){
+			anyImage = true;
+		}
+		if (anyImage) {
+			var malePath = imagesPath+'men/';
+			var femalePath = imagesPath+'women/';
+			var maleCount = [[fileManager contentsOfDirectoryAtPath:malePath error:nil] count] -1;
+			var femaleCount = [[fileManager contentsOfDirectoryAtPath:femalePath error:nil] count] -1;
+			imageCount = maleCount + femaleCount;
+		}
 
 		if(imgAmount > imageCount){ //Load images in sequential order
 			while(imgAmount--) {
+				if (anyImage) {
+						var g = Math.floor(Math.random() * 1000)%2;
+						gender = g ? 'men/' : 'women/';
+						imageCount = g ? maleCount : femaleCount;
+						imagesFileNames = [fileManager contentsOfDirectoryAtPath:(imagesPath + gender) error:nil];
+				}
 				var index = Math.floor(Math.random() * imageCount);
 				do {
 					index = index >= imageCount ? 0 : index + 1;
 					var fileName = imagesFileNames[index];
-					var filePath = imagesPath + fileName;			
+					var filePath = imagesPath + gender + fileName;
 				} while(![fileManager fileExistsAtPath: filePath] || fileName == '.DS_Store')
 
 				selectedPaths.push(filePath);
@@ -28,9 +45,15 @@ var loadImages = function(dataPath, groupName, pictureName){
 		else{	//Load unique images
 			while(imgAmount--) {  
 				do {
+					if (anyImage) {
+						var g = Math.floor(Math.random() * 1000)%2;
+						gender = g ? 'men/' : 'women/';
+						imageCount = g ? maleCount : femaleCount;
+						imagesFileNames = [fileManager contentsOfDirectoryAtPath:(imagesPath + gender) error:nil];
+					}
 					var index = Math.floor(Math.random() * imageCount);
 					var fileName = imagesFileNames[index];
-					var filePath = imagesPath + fileName;
+					var filePath = imagesPath + gender + fileName;
 					var match = selectedPaths.filter(function(selectedPath){return filePath == selectedPath;});
 				} while(fileName == '.DS_Store' || ![fileManager fileExistsAtPath: filePath] || match.length >= 1);
 				selectedPaths.push(filePath);
