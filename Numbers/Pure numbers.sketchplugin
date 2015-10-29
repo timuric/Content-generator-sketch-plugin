@@ -1,4 +1,4 @@
-#import '../js/utility.js'
-#import '../js/loadNumbers.js'
+@import '../js/utility.js'
+@import '../js/loadNumbers.js'
 
 loadText();

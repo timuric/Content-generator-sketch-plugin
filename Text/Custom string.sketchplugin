@@ -1,4 +1,4 @@
-#import '../js/utility.js'
+@import '../js/utility.js'
 
 if([selection count] == 0) {
 	[doc showMessage:"Select at least one text layer"];
