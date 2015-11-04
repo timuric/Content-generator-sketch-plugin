@@ -50,7 +50,7 @@ Note: In order to add more than one custom image plugins you would have to add y
 ## Feature requests, bugs & feedback
 
 Ping me on [twitter](http://twitter.com/timur_carpeev) or follow for updates.
-Best way to submit bugs is to attach a screenshot of the console app [like so](https://www.dropbox.com/s/e3g4g49j1lwkp5j/Screenshot%202014-06-09%2022.33.03.png) (use "sketch" in filter box)
+Best way to submit bugs is to attach a screenshot of the console app [like so](https://raw.githubusercontent.com/timuric/Content-generator-for-sketch-app/master/tutorial/console.png) (use "sketch" in filter box)
 
 ## Contributors
 Author [Timur Carpeev](https://twitter.com/timur_carpeev)
