@@ -47,10 +47,15 @@ Note: In order to add more than one custom image plugins you would have to add y
 * Fetch content directly from different online sources 
 * Easier extensibility
 
-## Feature requests, bugs & feedback
-
+## Feature requests & feedback
 Ping me on [twitter](http://twitter.com/timur_carpeev) or follow for updates.
-Best way to submit bugs is to attach a screenshot of the console app [like so](https://raw.githubusercontent.com/timuric/Content-generator-sketch-plugin/master/tutorial/console.png) (use "sketch" in filter box) and include version of your Sketch app (open `Sketch\About`)
+
+## Bug reports
+1. Open Console app `Applications/Utilities/Console` 
+2. Type Sketch In filter box [like so](https://raw.githubusercontent.com/timuric/Content-generator-sketch-plugin/master/tutorial/console.png)
+3. Run broken plugin
+4. Submit output of the Console app via [Github issues](https://github.com/timuric/Content-generator-sketch-plugin/issues) or [twitter](http://twitter.com/timur_carpeev) toghether with the version of your Sketch app
+
 
 ## Contributors
 Author [Timur Carpeev](https://twitter.com/timur_carpeev)
