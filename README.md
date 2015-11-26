@@ -31,27 +31,29 @@ Which would result in "$321,34 old" or "$12,75 new"
 
 ## Adding custom images
 
-1. In Sketch app `Plugins > Reveal Plugins folder...`
-2. Open Content Generator plugin folder
-3. Add your photos to `Data > Photos > my-photos`
+1. In Sketch app `Plugins > Manage Plugins...`
+2. In the Preferences window, click on the cog-wheel icon, and select `Show Plugins Folder` from the dropdown.
+3. Open Content Generator plugin folder
+4. Add your photos to `Data > Photos > my-photos`
 
 Note: In order to add more than one custom image plugins you would have to add your folders with pictures to `Data > Photos` then make copies of modified plugins that would point to those folders. To modify a plugin to point to your folder you have to adjust only the last line in the plugin that contains [path](https://github.com/timuric/Content-generator-sketch-plugin/blob/master/Photos/My%20Photos.sketchplugin#L4). When modifying the path to the custom path make sure to type proper `"` symbol (watch out for autocorrect).  
 
 ## Installation
 1. Download Zip and Extract it to a folder
-2. In Sketch app `Plugins > Reveal Plugins folder...`
-3. Place the extracted folder directly to the Plugins folder (nesting might not work atm)
+2. In Sketch app `Plugins > Manage Plugins...`
+3. In the Preferences window, click on the cog-wheel icon, and select `Show Plugins Folder` from the dropdown.
+4. Place the extracted folder directly to the Plugins folder (nesting might not work atm)
 
 ## Upcoming features
 * More types of data
-* Fetch content directly from different online sources 
+* Fetch content directly from different online sources
 * Easier extensibility
 
 ## Feature requests & feedback
 Ping me on [twitter](http://twitter.com/timur_carpeev) or follow for updates.
 
 ## Bug reports
-1. Open Console app `Applications/Utilities/Console` 
+1. Open Console app `Applications/Utilities/Console`
 2. Type Sketch In filter box [like so](https://raw.githubusercontent.com/timuric/Content-generator-sketch-plugin/master/tutorial/console.png)
 3. Run broken plugin
 4. Submit output of the Console app via [Github issues](https://github.com/timuric/Content-generator-sketch-plugin/issues) or [twitter](http://twitter.com/timur_carpeev) toghether with the version of your Sketch app
@@ -69,5 +71,3 @@ And [others](https://github.com/timuric/Content-generator-sketch-plugin/graphs/c
 * User pics [Uifaces](http://uifaces.com/)
 * User names [Uinames](http://uinames.com/)
 * Random data [Mockaroo](http://mockaroo.com/)
-
-
