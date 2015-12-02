@@ -29,14 +29,9 @@ An example of a combined string: $[0-999],[10-99] [new~used~old]
 Which would result in "$321,34 old" or "$12,75 new"
 
 
-## Adding custom images
+## Generating custom images
+Use `Photos\Custom` plugin to specify path to your own folder with images
 
-1. In Sketch app `Plugins > Manage Plugins...`
-2. In the Preferences window, click on the cog-wheel icon, and select `Show Plugins Folder` from the dropdown.
-3. Open Content Generator plugin folder
-4. Add your photos to `Data > Photos > my-photos`
-
-Note: In order to add more than one custom image plugins you would have to add your folders with pictures to `Data > Photos` then make copies of modified plugins that would point to those folders. To modify a plugin to point to your folder you have to adjust only the last line in the plugin that contains [path](https://github.com/timuric/Content-generator-sketch-plugin/blob/master/Photos/My%20Photos.sketchplugin#L4). When modifying the path to the custom path make sure to type proper `"` symbol (watch out for autocorrect).  
 
 ## Installation
 1. Download Zip and Extract it to a folder
@@ -71,3 +66,5 @@ And [others](https://github.com/timuric/Content-generator-sketch-plugin/graphs/c
 * User pics [Uifaces](http://uifaces.com/)
 * User names [Uinames](http://uinames.com/)
 * Random data [Mockaroo](http://mockaroo.com/)
+* Custom photos [Ian Silber](https://github.com/iansilber/sketch-image-replace)
+* Vintage user pics [Rad faces](http://www.radfaces.com/)
