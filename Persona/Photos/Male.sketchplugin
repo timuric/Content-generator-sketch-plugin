@@ -1,6 +1,4 @@
 @import '../../js/utility.js'
 @import '../../js/loadImage.js'
 
-var paths = ['data/images/persona/male/', 'data/images/persona/male/', 'data/images/persona/neutral/'];
-
-loadImages(paths, 'user pic', 'avatar')
+loadImages('data/images/persona/male/', 'user pic', 'avatar')
