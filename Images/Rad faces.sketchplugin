@@ -1,0 +1,49 @@
+//Based on the original source of Nick Stamas @nickstamas https://github.com/nickstamas/Sketch-Quick-Pic
+//Modified by @timur_carpeev
+
+if ([selection count] > 0) {
+  var request = [[NSMutableURLRequest alloc] init];
+  [request setHTTPMethod:@"GET"];
+  var queryString = "http://www.radfaces.com/public/radfaces.json";
+  [request setURL:[NSURL URLWithString:queryString]];
+
+  var error = [[NSError alloc] init];
+  var responseCode = null;
+
+  var oResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:responseCode error:error];
+
+  var dataString = [[NSString alloc] initWithData:oResponseData
+                                         encoding:NSUTF8StringEncoding];
+
+  var pattern = new RegExp("\\\\'", "g");
+  var validJSONString = dataString.replace(pattern, "'");
+
+  var data = JSON.parse(validJSONString);
+
+  if (data.length > 0) {
+    for (var i=0; i <= [selection count]; i++) {
+      var randomIndex = Math.floor(Math.random()*(data.length-1))
+      var imageURLString = data[randomIndex].image;
+      var url = [[NSURL alloc] initWithString: imageURLString];
+
+      var newImage = [[NSImage alloc] initByReferencingURL:url];
+      
+      var layer = [selection objectAtIndex:i];
+
+      var fill = layer.style().fills().firstObject();
+      fill.setFillType(4);
+      fill.setPatternFillType(1);
+
+      layer.setName(data[randomIndex].name)
+
+      var coll = layer.style().fills().firstObject().documentData().images();              
+
+      [fill setPatternImage: newImage collection:coll];
+    }
+  } else {
+    var message = "No images found tagged with: " + tag;
+    [doc showMessage: message];
+  }
+} else {
+  [doc showMessage:"No layer is selected."];
+}
