@@ -19,7 +19,7 @@ if ([selection count] > 0) {
     [input validateEditing];
     var tag = [input stringValue];
 
-    tag = tag.replace(/\s/, "");
+    tag = tag.replace(/\s/g, "");
     log(tag);
 
     var request = [[NSMutableURLRequest alloc] init];
