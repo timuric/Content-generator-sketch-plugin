@@ -30,7 +30,7 @@ Which would result in "$321,34 old" or "$12,75 new"
 
 
 ## Generating custom images
-Use `Photos\Custom` plugin to specify path to your own folder with images
+In Sketch app use  `Plugins\Content Generator\Images\Custom` plugin to specify path to your own folder with images
 
 
 ## Installation
