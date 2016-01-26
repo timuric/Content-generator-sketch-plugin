@@ -102,8 +102,7 @@ function replaceWithImages(images, context) {
 		if([layer class] == MSShapeGroup){
 			var fill = layer.style().fills().firstObject();
 			fill.setFillType(4);
-			var coll = layer.style().fills().firstObject().documentData().images();
-			[fill setPatternImage:image collection:coll]
+			layer.style().fills().firstObject().setPatternImage( image );
 			layer.style().fills().firstObject().setPatternFillType(1);
 		}
 	}

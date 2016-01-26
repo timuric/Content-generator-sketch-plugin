@@ -36,9 +36,8 @@ if ([selection count] > 0) {
 
       layer.setName(data[randomIndex].name)
 
-      var coll = layer.style().fills().firstObject().documentData().images();              
-
-      [fill setPatternImage: newImage collection:coll];
+      layer.style().fills().firstObject().setPatternImage( newImage );
+      layer.style().fills().firstObject().setPatternFillType(1);
     }
   } else {
     var message = "No images found tagged with: " + tag;
