@@ -1,0 +1,20 @@
+// Federal States (Bundesländer)
+// source: https://de.wikipedia.org/wiki/Land_(Deutschland)
+data = [
+"Baden-Württemberg",
+"Bayern",
+"Berlin",
+"Brandenburg",
+"Bremen",
+"Hamburg",
+"Hessen",
+"Mecklenburg-Vorpommern",
+"Niedersachsen",
+"Nordrhein-Westfalen",
+"Rheinland-Pfalz",
+"Saarland",
+"Sachsen",
+"Sachsen-Anhalt",
+"Schleswig-Holstein",
+"Thüringen"
+]
