@@ -19,7 +19,7 @@ if ([selection count] > 0) {
   var validJSONString = dataString.replace(pattern, "'");
 
   var data = JSON.parse(validJSONString);
-
+  console.log(data)
   if (data.length > 0) {
     for (var i=0; i <= [selection count]; i++) {
       var randomIndex = Math.floor(Math.random()*(data.length-1))
@@ -34,7 +34,7 @@ if ([selection count] > 0) {
       fill.setFillType(4);
       fill.setPatternFillType(1);
 
-      layer.setName(data[randomIndex].name)
+      layer.setName(data[randomIndex].first_name + " " + data[randomIndex].last_name);
 
       layer.style().fills().firstObject().setPatternImage( newImage );
       layer.style().fills().firstObject().setPatternFillType(1);
