@@ -1,0 +1,42 @@
+//Based on the original source of Nick Stamas @nickstamas https://github.com/nickstamas/Sketch-Quick-Pic
+//Modified by @timur_carpeev
+//Latest modification by @alirezas
+
+if ([selection count] > 0) {
+  var request = [[NSMutableURLRequest alloc] init];
+  [request setHTTPMethod:@"GET"];
+  var queryString = "http://uifaces.com/api/v1/random";
+  [request setURL:[NSURL URLWithString:queryString]];
+
+  var error = [[NSError alloc] init];
+  var responseCode = null;
+
+  var oResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:responseCode error:error];
+
+  var dataString = [[NSString alloc] initWithData:oResponseData
+                                         encoding:NSUTF8StringEncoding];
+
+
+  var pattern = new RegExp("\\\\'", "g");
+  var validJSONString = dataString.replace(pattern, "'");
+
+  var data = JSON.parse(validJSONString);
+
+  var imageURLString = data.image_urls.epic;]
+  var url = [[NSURL alloc] initWithString: imageURLString];
+
+
+  var newImage = [[NSImage alloc] initByReferencingURL:url];
+  
+  var layer = [selection objectAtIndex:0];
+
+  var fill = layer.style().fills().firstObject();
+  fill.setFillType(4);
+  fill.setPatternFillType(1);
+
+  layer.style().fills().firstObject().setPatternImage( newImage );
+  layer.style().fills().firstObject().setPatternFillType(1);
+
+} else {
+  [doc showMessage:"No layer is selected."];
+}
