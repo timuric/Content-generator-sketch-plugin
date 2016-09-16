@@ -56,11 +56,11 @@ var loadImages = function(dataPath, groupName, pictureName){
                 var fill = layer.style().fills().firstObject();
                 fill.setFillType(4);                
                 if(tools.minorVersion() >= 1){
-					layer.style().fills().firstObject().setPatternImage( image );
+					layer.style().fills().firstObject().setImage(MSImageData.alloc().initWithImage_convertColorSpace(image, false));
 					layer.style().fills().firstObject().setPatternFillType(1);
                 }
                 else{
-                	layer.style().fills().firstObject().setPatternImage( image );
+                	layer.style().fills().firstObject().setImage(MSImageData.alloc().initWithImage_convertColorSpace(image, false));
                 }                                                
                 layer.style().fills().firstObject().setPatternFillType(1);
             }
