@@ -34,7 +34,7 @@ In Sketch app use  `Plugins\Content Generator\Images\Custom` plugin to specify p
 
 
 ## Installation
-1. Download Zip and Extract it to a folder
+1. [Download Zip](https://github.com/timuric/Content-generator-sketch-plugin/archive/master.zip) and Extract it to a folder
 2. In Sketch app `Plugins > Manage Plugins...`
 3. In the Preferences window, click on the cog-wheel icon, and select `Show Plugins Folder` from the dropdown.
 4. Place the extracted folder directly to the Plugins folder (nesting might not work atm)
