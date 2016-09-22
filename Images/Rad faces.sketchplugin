@@ -27,17 +27,14 @@ if ([selection count] > 0) {
       var url = [[NSURL alloc] initWithString: imageURLString];
 
       var newImage = [[NSImage alloc] initByReferencingURL:url];
-      
-      var layer = [selection objectAtIndex:i];
 
-      var fill = layer.style().fills().firstObject();
-      fill.setFillType(4);
-      fill.setPatternFillType(1);
+      var layer = [selection objectAtIndex:i];
 
       layer.setName(data[randomIndex].first_name + " " + data[randomIndex].last_name);
 
-      layer.style().fills().firstObject().setPatternImage( newImage );
-      layer.style().fills().firstObject().setPatternFillType(1);
+      var fill = layer.style().fills().firstObject();
+      fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(newImage, false));
+      fill.fills().firstObject().setPatternFillType(1);
     }
   } else {
     var message = "No images found tagged with: " + tag;

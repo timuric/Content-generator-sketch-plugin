@@ -2,9 +2,9 @@ var loadImages = function(dataPath, groupName, pictureName){
 	var groupName = groupName || 'picture';
 		pictureName = pictureName || 'picture';
 
-	function loadImages(imgAmount){
+	function getImageCollection(imgAmount){
 		var fileManager = [NSFileManager defaultManager];
-		var scriptPath = sketch.scriptPath;			
+		var scriptPath = sketch.scriptPath;
 		var pluginFolder = scriptPath.match(/Plugins\/([\w -])*/)[0] + "/";
 		var sketchPluginsPath = scriptPath.replace(/Plugins([\w \/ -])*.sketchplugin$/, "");
 		var imagesPath =  sketchPluginsPath + pluginFolder + dataPath;
@@ -19,14 +19,14 @@ var loadImages = function(dataPath, groupName, pictureName){
 				do {
 					index = index >= imageCount ? 0 : index + 1;
 					var fileName = imagesFileNames[index];
-					var filePath = imagesPath + fileName;			
+					var filePath = imagesPath + fileName;
 				} while(![fileManager fileExistsAtPath: filePath] || fileName == '.DS_Store')
 
 				selectedPaths.push(filePath);
 			}
-		} 
+		}
 		else{	//Load unique images
-			while(imgAmount--) {  
+			while(imgAmount--) {
 				do {
 					var index = Math.floor(Math.random() * imageCount);
 					var fileName = imagesFileNames[index];
@@ -36,33 +36,26 @@ var loadImages = function(dataPath, groupName, pictureName){
 				selectedPaths.push(filePath);
 			}
 		}
-		
+
 		return selectedPaths.map(function(imagePath){
-			if ([fileManager fileExistsAtPath: imagePath]) {				
-				var image = [[NSImage alloc] initWithContentsOfFile:imagePath];			
+			if ([fileManager fileExistsAtPath: imagePath]) {
+				var image = [[NSImage alloc] initWithContentsOfFile:imagePath];
 				return image;
 			}
 		})
 	}
 
-	function main(){		
+	function main(){
 		var allLayers = [[doc currentPage] layers],
-			imagesCollection = loadImages([selection count] + 1);
+			imagesCollection = getImageCollection([selection count] + 1);
 
 		for(var i = 0; i < [selection count]; i++){
 			var layer = selection[i];
             if([layer class] == MSShapeGroup){
                 var image = imagesCollection[i];
                 var fill = layer.style().fills().firstObject();
-                fill.setFillType(4);                
-                if(tools.minorVersion() >= 1){
-					layer.style().fills().firstObject().setImage(MSImageData.alloc().initWithImage_convertColorSpace(image, false));
-					layer.style().fills().firstObject().setPatternFillType(1);
-                }
-                else{
-                	layer.style().fills().firstObject().setImage(MSImageData.alloc().initWithImage_convertColorSpace(image, false));
-                }                                                
-                layer.style().fills().firstObject().setPatternFillType(1);
+								fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(image, false));
+								fill.fills().firstObject().setPatternFillType(1);
             }
 		}
 
@@ -72,4 +65,3 @@ var loadImages = function(dataPath, groupName, pictureName){
 	}
 	main();
 }
-

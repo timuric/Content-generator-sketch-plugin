@@ -1,5 +1,5 @@
 var tools = {
-	appVersion: "0.8",
+	appVersion: "0.9.1",
 	versionComponents : function() {
 		var info = [[NSBundle mainBundle] infoDictionary];
 		var items = [[(info["CFBundleShortVersionString"]) componentsSeparatedByString:"."] mutableCopy];
@@ -26,7 +26,7 @@ var tools = {
 		return normalString;
 	},
 
-	saveFile : function(path,data){		
+	saveFile : function(path,data){
 		var someContent = NSString.stringWithString_(data)
 		var path = path
 		someContent.dataUsingEncoding_(NSUTF8StringEncoding).writeToFile_atomically_(path, true)
@@ -36,7 +36,7 @@ var tools = {
 			var pluginFolder = scriptPath.match(/Plugins\/([\w -])*/)[0] + "/";
 			var sketchPluginsPath = scriptPath.replace(/Plugins([\w \/ -])*.sketchplugin$/, "");
 			return pluginFolder;
-		}		
+		}
 	},
 	getJSONFromURL: function(url) {
 		var request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]],
@@ -44,7 +44,7 @@ var tools = {
 			responseObj = [NSJSONSerialization JSONObjectWithData:response options:nil error:nil]
 		return responseObj
 	},
-	checkPluginUpdate: function(){		
+	checkPluginUpdate: function(){
 		try{
 			var response = this.getJSONFromURL('https://raw.githubusercontent.com/timuric/Content-generator-sketch-plugin/master/sketchpack.json')
 			if(response && response.version){
@@ -52,7 +52,7 @@ var tools = {
 				var removeVersion = parseFloat(response.version.match(rgx).join(""))
 				var installedVersion = parseFloat(this.appVersion.match(rgx).join(""))
 				if (removeVersion > installedVersion) [doc showMessage:"New plugin update is available! Visit github.com/timuric/Content-generator-sketch-plugin"]
-			}		
+			}
 		}catch(e){
 			log(e);
 		}
@@ -101,8 +101,7 @@ function replaceWithImages(images, context) {
 		var layer = selection[i];
 		if([layer class] == MSShapeGroup){
 			var fill = layer.style().fills().firstObject();
-			fill.setFillType(4);
-			layer.style().fills().firstObject().setPatternImage( image );
+			fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(image, false));
 			layer.style().fills().firstObject().setPatternFillType(1);
 		}
 	}
@@ -133,7 +132,3 @@ function getFilesAndReplace(directory, context) {
 	}
 
 }
-
-
-
-

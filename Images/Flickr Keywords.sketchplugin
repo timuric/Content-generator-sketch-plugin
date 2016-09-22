@@ -54,7 +54,8 @@ if ([selection count] > 0) {
         fill.setFillType(4);
         fill.setPatternFillType(1);
 
-        layer.style().fills().firstObject().setPatternImage( newImage );
+        log(newImage)
+        fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(newImage, false));
         layer.style().fills().firstObject().setPatternFillType(1);
 
       }
