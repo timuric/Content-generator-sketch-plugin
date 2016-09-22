@@ -1,5 +1,0 @@
-@import '../../js/utility.js'
-@import '../../js/loadText.js'
-@import '../../data/geo/netherlands/cities.json'
-
-loadText(data);

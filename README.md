@@ -1,7 +1,7 @@
 Content Generator for Sketch
 ============================
 
-Sketch generator allows you quickly create dummy data such as avatars, names, geo location data etc.
+Content generator allows you quickly create dummy data such as avatars, names, geo location data etc.
 
 ## Demo
 #####Generating pictures
@@ -69,7 +69,4 @@ And [others](https://github.com/timuric/Content-generator-sketch-plugin/graphs/c
 * Custom photos [Ian Silber](https://github.com/iansilber/sketch-image-replace)
 * Vintage user pics [Rad faces](http://www.radfaces.com/)
 * Flickr keywords [https://github.com/nickstamas](https://github.com/nickstamas/Sketch-Quick-Pic)
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/timuric/content-generator-sketch-plugin/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
