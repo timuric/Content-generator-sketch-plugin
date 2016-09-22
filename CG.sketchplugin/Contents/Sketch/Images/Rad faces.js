@@ -25,8 +25,8 @@ function onRun(context){
     var data = JSON.parse(validJSONString);
 
     if (data.length > 0) {
-      for (var i=0; i <= [selection count]; i++) {
-        var randomIndex = Math.floor(Math.random()*(data.length-1))
+      for (var i=0; i <= selection.length; i++) {
+        var randomIndex = Math.floor(Math.random()*(data.length-1));
         var imageURLString = data[randomIndex].image;
         var url = [[NSURL alloc] initWithString: imageURLString];
 
@@ -39,7 +39,7 @@ function onRun(context){
         var fill = layer.style().fills().firstObject();
         fill.setFillType(4);
         fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(newImage, false));
-        fill.fills().firstObject().setPatternFillType(1);
+        fill.setPatternFillType(1);
       }
     } else {
       var message = "No images found tagged with: " + tag;

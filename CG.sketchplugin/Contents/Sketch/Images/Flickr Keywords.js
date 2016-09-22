@@ -45,7 +45,7 @@ function onRun(context){
       var data = JSON.parse(validJSONString);
 
       if (data.items.length > 0) {
-        for (var i=0; i <= [selection count]; i++) {
+        for (var i=0; i <= selection.length; i++) {
           var randomIndex = Math.floor(Math.random()*(data.items.length-1))
           var imageURLString = data.items[randomIndex].media.m;
           var url = [[NSURL alloc] initWithString: imageURLString];
