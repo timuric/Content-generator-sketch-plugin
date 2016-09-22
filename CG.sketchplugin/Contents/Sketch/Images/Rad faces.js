@@ -37,6 +37,7 @@ function onRun(context){
         layer.setName(data[randomIndex].first_name + " " + data[randomIndex].last_name);
 
         var fill = layer.style().fills().firstObject();
+        fill.setFillType(4);
         fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(newImage, false));
         fill.fills().firstObject().setPatternFillType(1);
       }

@@ -101,6 +101,7 @@ function replaceWithImages(images, context) {
 		var layer = selection[i];
 		if([layer class] == MSShapeGroup){
 			var fill = layer.style().fills().firstObject();
+			fill.setFillType(4);
 			fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(image, false));
 			fill.setPatternFillType(1);
 		}

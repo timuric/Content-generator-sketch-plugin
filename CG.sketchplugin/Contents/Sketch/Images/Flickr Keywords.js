@@ -56,7 +56,6 @@ function onRun(context){
 
           var fill = layer.style().fills().firstObject();
           fill.setFillType(4);
-          fill.setPatternFillType(1);
 
           fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(newImage, false));
           fill.setPatternFillType(1);
