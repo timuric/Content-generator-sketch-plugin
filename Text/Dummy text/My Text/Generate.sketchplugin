@@ -1,5 +1,0 @@
-@import '../../../js/utility.js'
-@import '../../../js/loadText.js'
-@import '../../../data/text/my-text.js'
-
-loadText(data, 'my text');

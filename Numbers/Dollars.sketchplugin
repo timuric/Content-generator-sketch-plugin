@@ -1,4 +1,0 @@
-@import '../js/utility.js'
-@import '../js/loadDollars.js'
-
-loadText();

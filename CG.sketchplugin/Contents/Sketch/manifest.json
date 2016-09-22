@@ -1,0 +1,384 @@
+{
+  "name" : "Content Generator",
+  "identifier" : "com.sketchapp.tcarpeev.contentgenerator",
+  "version" : "1.0",
+  "description" : "Content generator allows you quickly create dummy data such as avatars, names, geo location data etc.",
+  "authorEmail" : "timuric@gmail.com",
+  "author" : "Timur Carpeev",
+  "commands" : [
+    {
+      "script" : "Images/Custom.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Apply from folder",
+      "identifier" : "custom-images"
+    },
+    {
+      "script" : "Images/Flickr Keywords.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Flickr",
+      "identifier" : "flickr"
+    },
+    {
+      "script" : "Images/Rad faces.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Rad faces",
+      "identifier" : "rad-faces"
+    },
+    {
+      "script" : "Persona/Photos/Female.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Female",
+      "identifier" : "photos-female"
+    },
+    {
+      "script" : "Persona/Photos/Male.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Male",
+      "identifier" : "photos-male"
+    },
+    {
+      "script" : "Persona/Photos/Neutral.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Neutral",
+      "identifier" : "photos-neutral"
+    },
+    {
+      "script" : "Persona/Names/Fm.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Female and Male",
+      "identifier" : "names-fm"
+    },
+    {
+      "script" : "Persona/Names/Male.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Male",
+      "identifier" : "names-male"
+    },
+    {
+      "script" : "Persona/Names/Female.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Female",
+      "identifier" : "names-female"
+    },
+    {
+      "script" : "Persona/Details/Email.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Email",
+      "identifier" : "details-email"
+    },
+    {
+      "script" : "Persona/Details/Phone.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Phone",
+      "identifier" : "details-phone"
+    },
+    {
+      "script" : "Numbers/Dollars.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Dollars",
+      "identifier" : "numbers-dollars"
+    },
+    {
+      "script" : "Numbers/Percentages.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Percentages",
+      "identifier" : "numbers-percentages"
+    },
+    {
+      "script" : "Numbers/Pure numbers.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Pure numbers",
+      "identifier" : "numbers-numbers"
+    },
+    {
+      "script" : "Text/Dummy text/Fillerati/Generate Fillerati.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Generate Fillerati",
+      "identifier" : "text-generate-fillerati"
+    },
+    {
+      "script" : "Text/Dummy text/Fillerati/Replace Fillerati.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Replace Fillerati",
+      "identifier" : "text-replace-fillerati"
+    },
+    {
+      "script" : "Text/Dummy text/Hipsum/Generate Hipsum.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Generate Hipsum",
+      "identifier" : "text-generate-hipsum"
+    },
+    {
+      "script" : "Text/Dummy text/Hipsum/Replace Hipsum.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Replace Hipsum",
+      "identifier" : "text-replace-hipsum"
+    },
+    {
+      "script" : "Text/Dummy text/Lorem/Generate Lorem.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Generate Lorem",
+      "identifier" : "text-generate-lorem"
+    },
+    {
+      "script" : "Text/Dummy text/Lorem/Replace Lorem.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Replace Lorem",
+      "identifier" : "text-replace-lorem"
+    },
+    {
+      "script" : "Text/Dummy text/Custom string.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Custom string",
+      "identifier" : "text-custom-string"
+    },
+    {
+      "script" : "Text/Dummy text/Enumerate.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Enumerate",
+      "identifier" : "text-enumerate"
+    },
+    {
+      "script" : "Text/Dummy text/Replace text.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Replace text",
+      "identifier" : "text-replace-text"
+    },
+    {
+      "script" : "Text/Dummy text/Time ago.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Time ago",
+      "identifier" : "text-time-ago"
+    },
+    {
+      "script" : "Geo/Belgium/City.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "City",
+      "identifier" : "geo-belgium-city"
+    },
+    {
+      "script" : "Geo/Belgium/Province.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Province",
+      "identifier" : "geo-belgium-province"
+    },
+    {
+      "script" : "Geo/France/City.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "City",
+      "identifier" : "geo-france-city"
+    },
+    {
+      "script" : "Geo/France/Department.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Department",
+      "identifier" : "geo-france-department"
+    },
+    {
+      "script" : "Geo/France/Region.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Region",
+      "identifier" : "geo-france-region"
+    },
+    {
+      "script" : "Geo/Germany/City.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "City",
+      "identifier" : "geo-germany-city"
+    },
+    {
+      "script" : "Geo/Germany/Districts.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Districts",
+      "identifier" : "geo-germany-districts"
+    },
+    {
+      "script" : "Geo/Germany/States.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "States",
+      "identifier" : "geo-germany-states"
+    },
+    {
+      "script" : "Geo/Netherlands/City.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "City",
+      "identifier" : "geo-netherlands-city"
+    },
+    {
+      "script" : "Geo/Netherlands/Province.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Province",
+      "identifier" : "geo-netherlands-province"
+    },
+    {
+      "script" : "Geo/USA/City.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "City",
+      "identifier" : "geo-usa-city"
+    },
+    {
+      "script": "Geo/USA/Full address.js",
+      "handler": "onRun",
+      "shortcut": "",
+      "name": "Full address",
+      "identifier": "geo-usa-full-address"
+    },
+    {
+      "script" : "Geo/USA/States.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "States",
+      "identifier" : "geo-usa-states"
+    }
+  ],
+  "menu": {
+    "items": [
+      {
+        "title": "Images",
+        "items": [
+          "custom-images", "flickr", "rad-faces"
+        ]
+      },
+      {
+        "title": "Numbers",
+        "items": [
+          "numbers-numbers", "numbers-dollars", "numbers-percentages"
+        ]
+      },
+      {
+        "title": "Text",
+        "items": [
+          {
+            "title": "Other",
+            "items":[
+              "text-custom-string",
+              "text-enumerate",
+              "text-replace-text",
+              "text-time-ago",
+            ]
+          },
+
+          {
+            "title": "Fillerati",
+            "items": [
+              "text-generate-fillerati", "text-replace-fillerati"
+            ]
+          },
+          {
+            "title": "Hipsum",
+            "items": [
+              "text-generate-hipsum", "text-replace-hipsum"
+            ]
+          },
+          {
+            "title": "Lorem",
+            "items": [
+              "text-generate-lorem", "text-replace-lorem"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Geo",
+        "items": [
+          {
+            "title": "Belgium",
+            "items": [
+              "geo-belgium-city",
+              "geo-belgium-province"
+            ]
+          },
+          {
+            "title": "France",
+            "items": [
+              "geo-france-city",
+              "geo-france-department",
+              "geo-france-region"
+            ]
+          },
+          {
+            "title": "Germany",
+            "items": [
+              "geo-germany-city",
+              "geo-germany-districts",
+              "geo-germany-states"
+            ]
+          },
+          {
+            "title": "Netherlands",
+            "items": [
+              "geo-netherlands-city",
+              "geo-netherlands-province"
+            ]
+          },
+          {
+            "title": "USA",
+            "items": [
+              "geo-usa-city",
+              "geo-usa-full-address",
+              "geo-usa-states"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Persona",
+        "items": [
+          {
+            "title": "Photos",
+            "items": [
+              "photos-female", "photos-male", "photos-neutral"
+            ]
+          },
+          {
+            "title": "Names",
+            "items": [
+              "names-fm", "names-male", "names-female"
+            ]
+          },
+          {
+            "title": "Details",
+            "items": [
+              "details-email", "details-phone"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
