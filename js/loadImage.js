@@ -55,7 +55,7 @@ var loadImages = function(dataPath, groupName, pictureName){
                 var image = imagesCollection[i];
                 var fill = layer.style().fills().firstObject();
 								fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(image, false));
-								fill.fills().firstObject().setPatternFillType(1);
+								fill.setPatternFillType(1);
             }
 		}
 

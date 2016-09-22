@@ -1,5 +1,5 @@
 var tools = {
-	appVersion: "0.9.1",
+	appVersion: "0.9.2",
 	versionComponents : function() {
 		var info = [[NSBundle mainBundle] infoDictionary];
 		var items = [[(info["CFBundleShortVersionString"]) componentsSeparatedByString:"."] mutableCopy];
@@ -102,7 +102,7 @@ function replaceWithImages(images, context) {
 		if([layer class] == MSShapeGroup){
 			var fill = layer.style().fills().firstObject();
 			fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(image, false));
-			layer.style().fills().firstObject().setPatternFillType(1);
+			fill.setPatternFillType(1);
 		}
 	}
 
