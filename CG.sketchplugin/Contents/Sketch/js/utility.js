@@ -1,5 +1,5 @@
 var tools = {
-	appVersion: "1.0",
+	appVersion: "1.1",
 	versionComponents : function() {
 		var info = [[NSBundle mainBundle] infoDictionary];
 		var items = [[(info["CFBundleShortVersionString"]) componentsSeparatedByString:"."] mutableCopy];

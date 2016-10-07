@@ -1,0 +1,90 @@
+@import '../../js/utility.js'
+
+
+function onRun(context){
+	var selection = context.selection;
+
+	if([selection count] == 0) {
+		[doc showMessage:"Select at least one text layer"];
+	}
+	else exec();
+
+	function exec(){
+		createCheckbox = function ( label, value, flag ) {
+			flag = ( flag == false ) ? NSOffState : NSOnState;
+			var checkbox = NSButton.alloc().initWithFrame( NSMakeRect( 0, 0, 300, 18 ) );
+			checkbox.setButtonType( NSSwitchButton );
+			checkbox.setTitle( label );
+			checkbox.setTag( value );
+			checkbox.setState( flag );
+
+			return checkbox;
+		}
+		var userInput = COSAlertWindow.new();
+
+		userInput.setMessageText("Rename Text Layers");
+		userInput.addTextLabelWithValue("Example: Price [0-20]$ [old~new]");
+		userInput.addTextFieldWithValue("");
+		userInput.addAccessoryView( createCheckbox( 'rename layers', 'r', false ) );
+		userInput.addButtonWithTitle('OK');
+		userInput.addButtonWithTitle('Cancel');
+
+		var responseCode = userInput.runModal();
+
+		if(1000 == responseCode){
+			var inputString = userInput.viewAtIndex(1).stringValue();
+			var renameLayers = userInput.viewAtIndex(2).state()
+			var regexBlocks = new RegExp("\\[[^\\]]*");
+			var regexWords = new RegExp("\\[[^~]+~.+\\]");
+			var regexNumberRange = new RegExp("\\[\\d+-\\d+\\]");
+
+			var blocks = [];
+			var opening = inputString.indexOf("[");
+			var closing = inputString.indexOf("]", opening);
+			if(opening != -1 && closing != -1) blocks.push(inputString.slice(0, opening));
+			else blocks.push(inputString);
+
+			while(opening != -1 && closing != -1){
+				blocks.push(inputString.slice(opening, closing+1));
+				opening = inputString.indexOf("[", closing);
+				blocks.push(inputString.slice(closing+1, opening));
+				closing = inputString.indexOf("]", opening);
+			}
+
+			blocks = blocks.map(function(block){
+				if(block.match(regexNumberRange)){ //Number range
+					var min = block.match(/\d+/)[0],
+						max = block.match(/-[\d]*/)[0].replace("]","").replace("-","");
+						return getRandomNumber.bind(null, min,max);
+				}
+				else if(block.match(regexWords)) { //Words list
+					block = block.replace("[","");
+					block = block.replace("]","");
+					var words = block.split("~");
+					return getRandomWord.bind(null, words);
+				}
+				else return block;
+			});
+
+			function getRandomNumber (min, max) {
+				min = new Number(min);
+				max = new Number(max);
+			    return Math.floor( Math.random() * (max - min) + min );
+			}
+			function getRandomWord (words) {
+				var index = getRandomNumber(0,words.length);
+				return words[index]
+			};
+
+			for (var i = 0, l = [selection count]; i < l; i++) { //Loop every selected layer
+				var layer = selection[i];
+				var generatedString = blocks.map(function(block){ return typeof block === "function" ? block() : block; }).join("");
+				[layer setStringValue: generatedString];
+				if(renameLayers) [layer setName: generatedString];
+			}
+
+		}
+	}
+
+	tools.checkPluginUpdate();
+}

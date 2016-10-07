@@ -1,0 +1,102 @@
+@import '../../js/utility.js'
+
+function onRun(context){
+    var selection = context.selection;
+
+    function timeSince(timeStamp) {
+        var now = new Date(),
+            secondsPast = (now.getTime() - timeStamp.getTime()) / 1000;
+
+        if(secondsPast < 60){
+            return parseInt(secondsPast) + 's';
+        }
+        if(secondsPast < 3600){
+            return parseInt(secondsPast/60) + 'm';
+        }
+        if(secondsPast <= 86400){
+            return parseInt(secondsPast/3600) + 'h';
+        }
+        if(secondsPast > 86400){
+            day = timeStamp.getDate();
+            month = timeStamp.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ","");
+            year = timeStamp.getFullYear() == now.getFullYear() ? "" :  " "+timeStamp.getFullYear();
+            return day + " " + month + year;
+        }
+    }
+
+
+    function createSelect(msg, items, selectedItemIndex){
+        selectedItemIndex = selectedItemIndex || 0
+
+        var accessory = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(0,0,100,25)]
+        [accessory addItemsWithTitles:items]
+        [accessory selectItemAtIndex:selectedItemIndex]
+
+        var alert = [[NSAlert alloc] init]
+            [alert setMessageText:msg]
+        [alert addButtonWithTitle:'OK']
+        [alert addButtonWithTitle:'Cancel']
+        [alert setAccessoryView:accessory]
+
+        var responseCode = [alert runModal]
+        var sel = [accessory indexOfSelectedItem]
+
+        return [sel]
+    }
+
+    var options = ['Hour', 'Day', 'Week', 'Month', 'Year']
+    var choice = createSelect('Choose date range',options, 1)
+
+    var now = new Date();
+    var dateItems = []
+    var itemCount = 0 //Amount of items we want to generate
+
+    for(var i = 0, l = [selection count]; i<l; i++){
+        var layer = selection[i];
+        if([layer class] == MSTextLayer) itemCount+=1;
+    }
+
+    if(choice == 0){
+        var hourAgo = now.getTime() - (60 * 60 * 1000);
+        setTimeSpans(hourAgo);
+    }
+    else if(choice == 1){
+        var dayAgo = now.getTime() - (24 * 60 * 60 * 1000);
+        setTimeSpans(dayAgo);
+    }
+    else if(choice == 2){
+        var dayAgo = now.getTime() - (7 * 24 * 60 * 60 * 1000);
+        setTimeSpans(dayAgo);
+    }
+    else if(choice == 3){
+        var dayAgo = now.getTime() - (31 * 24 * 60 * 60 * 1000);
+        setTimeSpans(dayAgo);
+    }
+    else if(choice == 4){
+        var dayAgo = now.getTime() - (360 * 24 * 60 * 60 * 1000);
+        setTimeSpans(dayAgo);
+    }
+    else log('No time range was chosen');
+
+    function setTimeSpans(timeAgo){
+        timeFraction = (now.getTime() - timeAgo) / (itemCount||1);
+
+        for(var i=0, j=1, l=[selection count]; i<l; i++){
+            var layer = selection[i];
+            if([layer class] == MSTextLayer){
+                var timeAgo = now.getTime() - (timeFraction * j) ); //Subtract time
+    timeAgo = new Date(timeAgo);
+
+    var textLabel =  timeSince(timeAgo);
+
+    if(textLabel){
+        [layer setStringValue: textLabel];
+        [layer setName: textLabel];
+    }
+    j++;
+}
+}
+}
+
+    tools.checkPluginUpdate();
+}

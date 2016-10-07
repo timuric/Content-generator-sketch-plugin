@@ -1,7 +1,7 @@
 {
   "name" : "Content Generator",
   "identifier" : "com.sketchapp.tcarpeev.contentgenerator",
-  "version" : "1.0",
+  "version" : "1.1",
   "description" : "Content generator allows you quickly create dummy data such as avatars, names, geo location data etc.",
   "authorEmail" : "timuric@gmail.com",
   "author" : "Timur Carpeev",
@@ -147,28 +147,28 @@
       "identifier" : "text-replace-lorem"
     },
     {
-      "script" : "Text/Dummy text/Custom string.js",
+      "script" : "Text/Other/Custom string.js",
       "handler" : "onRun",
       "shortcut" : "",
       "name" : "Custom string",
       "identifier" : "text-custom-string"
     },
     {
-      "script" : "Text/Dummy text/Enumerate.js",
+      "script" : "Text/Other/Enumerate.js",
       "handler" : "onRun",
       "shortcut" : "",
       "name" : "Enumerate",
       "identifier" : "text-enumerate"
     },
     {
-      "script" : "Text/Dummy text/Replace text.js",
+      "script" : "Text/Other/Replace text.js",
       "handler" : "onRun",
       "shortcut" : "",
       "name" : "Replace text",
       "identifier" : "text-replace-text"
     },
     {
-      "script" : "Text/Dummy text/Time ago.js",
+      "script" : "Text/Other/Time ago.js",
       "handler" : "onRun",
       "shortcut" : "",
       "name" : "Time ago",
@@ -289,7 +289,7 @@
               "text-custom-string",
               "text-enumerate",
               "text-replace-text",
-              "text-time-ago",
+              "text-time-ago"
             ]
           },
 
