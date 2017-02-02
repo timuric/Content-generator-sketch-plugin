@@ -21,13 +21,6 @@
       "identifier" : "flickr"
     },
     {
-      "script" : "Images/Rad faces.js",
-      "handler" : "onRun",
-      "shortcut" : "",
-      "name" : "Rad faces",
-      "identifier" : "rad-faces"
-    },
-    {
       "script" : "Persona/Photos/Female.js",
       "handler" : "onRun",
       "shortcut" : "",
