@@ -40,7 +40,7 @@ In Sketch app use  `Plugins\Content Generator\Images\Custom` plugin to specify p
 4. Place the extracted folder directly to the Plugins folder (nesting might not work atm)
 
 ## Install with Sketch Runner
-With Sketch Runner, just go to the `install` command and search for `[plugin name]`. Runner allows you to manage plugins and do much more to speed up your workflow in Sketch. [Download Runner here](http://www.sketchrunner.com).
+With Sketch Runner, just go to the `install` command and search for `Content Generator`. Runner allows you to manage plugins and do much more to speed up your workflow in Sketch. [Download Runner here](http://www.sketchrunner.com).
 
 ## Upcoming features
 * More types of data
