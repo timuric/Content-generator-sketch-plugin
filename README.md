@@ -4,19 +4,20 @@ Content Generator for Sketch
 Content generator allows you quickly create dummy data such as avatars, names, geo location data etc.
 
 ## Demo
-#####Generating pictures
+##### Generating pictures
 
 ![Generating thumbnails](https://raw.githubusercontent.com/timuric/Content-generator-for-sketch-app/master/tutorial/userpics.gif)
 
-#####Generating names
+##### Generating names
 
 ![Generating names](https://raw.githubusercontent.com/timuric/Content-generator-for-sketch-app/master/tutorial/names.gif)
 
-#####Generating dummy text
+##### Generating dummy text
 
 ![Generating text](https://raw.githubusercontent.com/timuric/Content-generator-for-sketch-app/master/tutorial/lorem.gif)
 
-#####Generating strings
+##### Generating strings
+
 ![custom string](https://cloud.githubusercontent.com/assets/5709624/8092928/c18d6d76-0fbd-11e5-962d-417165cc1a2d.gif)
 
 You can create a custom string by combining any of these options:
@@ -38,6 +39,11 @@ In Sketch app use  `Plugins\Content Generator\Images\Custom` plugin to specify p
 2. In Sketch app `Plugins > Manage Plugins...`
 3. In the Preferences window, click on the cog-wheel icon, and select `Show Plugins Folder` from the dropdown.
 4. Place the extracted folder directly to the Plugins folder (nesting might not work atm)
+
+## Install with Sketch Runner
+With Sketch Runner, just go to the `install` command and search for `Content Generator`. Runner allows you to manage plugins and do much more to speed up your workflow in Sketch. [Download Runner here](http://www.sketchrunner.com).
+
+![Install with Sketch Runner](content-generator-runner.png)
 
 ## Upcoming features
 * More types of data
