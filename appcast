@@ -14,7 +14,7 @@
             </ul>
           ]]>
         </description>
-        <enclosure url="https://github.com/timuric/Content-generator-sketch-plugin/archive/master.zip" sparkle:version="2.0" />
+        <enclosure url="https://github.com/timuric/Content-generator-sketch-plugin/archive/master.zip" sparkle:version="1.1" />
       </item>
   </channel>
 </rss>
