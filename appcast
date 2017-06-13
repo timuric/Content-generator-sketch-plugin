@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Content Generator Sketch Plugin</title>
+    <link>http://sparkle-project.org/files/sparkletestcast.xml</link>
+    <description>Sketch app plugin for generating dummy data such as avatars, names, photos, geo data etc</description>
+    <language>en</language>
+      <item>
+        <title>Version 1.1</title>
+        <description>
+          <![CDATA[
+            <ul>
+            <li>Minor update v1.1</li>
+            </ul>
+          ]]>
+        </description>
+        <enclosure url="https://github.com/timuric/Content-generator-sketch-plugin/archive/master.zip" sparkle:version="2.0" />
+      </item>
+  </channel>
+</rss>
