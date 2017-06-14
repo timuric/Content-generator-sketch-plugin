@@ -277,7 +277,7 @@
       "script" : "Geo/Canada/Province.js",
       "handler" : "onRun",
       "shortcut" : "",
-      "name" : "States",
+      "name" : "Province",
       "identifier" : "geo-canada-province"
     }
   ],
