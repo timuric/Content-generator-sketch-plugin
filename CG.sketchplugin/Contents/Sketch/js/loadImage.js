@@ -54,14 +54,20 @@ var loadImages = function(context, dataPath, groupName, pictureName){
 
 		for(var i = 0; i < selection.length; i++){
 			var layer = selection[i];
-            if([layer class] == MSShapeGroup){
-                var image = imagesCollection[i];
-				log(image)
-                var fill = layer.style().fills().firstObject();
+      if([layer class] == MSShapeGroup) {
+        var image = imagesCollection[i];
+				log(image);
+        var fill = layer.style().fills().firstObject();
 				fill.setFillType(4);
-				fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(image, false));
+				var imageData;
+				if (MSApplicationMetadata.metadata().appVersion < 47) {
+					imageData = MSImageData.alloc().initWithImage_convertColorSpace(image, false);
+				} else {
+					imageData = MSImageData.alloc().initWithImage(image);
+				}
+				fill.setImage(imageData);
 				fill.setPatternFillType(1);
-            }
+			}
 		}
 
 		if(selection.length == 0) [doc showMessage:'Select at least one vector shape'];;

@@ -102,7 +102,13 @@ function replaceWithImages(images, context) {
 		if([layer class] == MSShapeGroup){
 			var fill = layer.style().fills().firstObject();
 			fill.setFillType(4);
-			fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(image, false));
+			var imageData;
+			if (MSApplicationMetadata.metadata().appVersion < 47) {
+				imageData = MSImageData.alloc().initWithImage_convertColorSpace(image, false);
+			} else {
+				imageData = MSImageData.alloc().initWithImage(image);
+			}
+			fill.setImage(imageData);
 			fill.setPatternFillType(1);
 		}
 	}

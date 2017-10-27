@@ -105,7 +105,13 @@ function process(selection, data, doc) {
       var fill = layer.style().fills().firstObject();
       fill.setFillType(4);
 
-      fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(newImage, false));
+      var imageData;
+      if (MSApplicationMetadata.metadata().appVersion < 47) {
+        imageData = MSImageData.alloc().initWithImage_convertColorSpace(newImage, false);
+      } else {
+        imageData = MSImageData.alloc().initWithImage(newImage);
+      }
+      fill.setImage(imageData);
       fill.setPatternFillType(1);
 
     }
