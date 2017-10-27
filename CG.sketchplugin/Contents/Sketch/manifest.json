@@ -1,7 +1,7 @@
 {
   "name" : "Content Generator",
   "identifier" : "com.sketchapp.tcarpeev.contentgenerator",
-  "version" : "1.1",
+  "version" : "1.2",
   "appcast" : "https://raw.githubusercontent.com/timuric/Content-generator-sketch-plugin/master/appcast",
   "description" : "Content generator allows you quickly create dummy data such as avatars, names, geo location data etc.",
   "authorEmail" : "timuric@gmail.com",
