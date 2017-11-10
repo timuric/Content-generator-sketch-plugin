@@ -265,6 +265,27 @@
       "shortcut" : "",
       "name" : "States",
       "identifier" : "geo-usa-states"
+    },
+    {
+      "script" : "Geo/Canada/City.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "City",
+      "identifier" : "geo-canada-city"
+    },
+    {
+      "script": "Geo/Canada/Full address.js",
+      "handler": "onRun",
+      "shortcut": "",
+      "name": "Full address",
+      "identifier": "geo-canada-full-address"
+    },
+    {
+      "script" : "Geo/Canada/Province.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Province",
+      "identifier" : "geo-canada-province"
     }
   ],
   "menu": {
@@ -353,6 +374,14 @@
               "geo-usa-city",
               "geo-usa-full-address",
               "geo-usa-states"
+            ]
+          },
+          {
+            "title": "Canada",
+            "items": [
+              "geo-canada-city",
+              "geo-canada-full-address",
+              "geo-canada-province"
             ]
           }
         ]
