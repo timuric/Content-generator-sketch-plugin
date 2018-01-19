@@ -51,6 +51,7 @@ var loadImages = function(context, dataPath, groupName, pictureName){
 	function main(){
 		var allLayers = [[doc currentPage] layers],
 			imagesCollection = getImageCollection(selection.length + 1);
+
 		for(var i = 0; i < selection.length; i++){
 			var layer = selection[i];
       if([layer class] == MSShapeGroup) {
