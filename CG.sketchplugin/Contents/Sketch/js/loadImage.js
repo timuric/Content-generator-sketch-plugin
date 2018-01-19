@@ -9,7 +9,7 @@ var loadImages = function(context, dataPath, groupName, pictureName){
 	function getImageCollection(imgAmount){
 		var fileManager = [NSFileManager defaultManager];
 		var imagesPath =  bundle.url() + "Contents/Sketch/" + dataPath;
-		imagesPath = imagesPath.replace("%20", " ").replace("file://", "")
+		imagesPath = imagesPath.replace(/%20/g, " ").replace("file://", "")
 		log(imagesPath)
 		var imagesFileNames = [fileManager contentsOfDirectoryAtPath:imagesPath error:nil];
 		var imageCount = [imagesFileNames count] -1;
