@@ -6,7 +6,7 @@
 
 
 function onRun(context){
-    var fileTypes = [NSArray arrayWithObjects:@"png", @"jpg", @"gif", @"jpeg", nil];
+    var fileTypes = [NSArray arrayWithArray:[@"png", @"jpg", @"gif", @"jpeg"]];
     var panel = [NSOpenPanel openPanel];
     var imageFileNames = [];
     [panel setCanChooseFiles:true];
