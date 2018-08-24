@@ -190,6 +190,20 @@
       "identifier" : "geo-belgium-province"
     },
     {
+      "script" : "Geo/Brazil/City.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "City",
+      "identifier" : "geo-brazil-city"
+    },
+    {
+      "script" : "Geo/Brazil/States.js",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "States",
+      "identifier" : "geo-brazil-states"
+    },
+    {
       "script" : "Geo/France/City.js",
       "handler" : "onRun",
       "shortcut" : "",
@@ -322,6 +336,13 @@
             "items": [
               "geo-belgium-city",
               "geo-belgium-province"
+            ]
+          },
+          {
+            "title": "Brazil",
+            "items": [
+              "geo-brazil-city",
+              "geo-brazil-states"
             ]
           },
           {
