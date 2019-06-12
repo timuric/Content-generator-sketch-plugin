@@ -56,7 +56,7 @@ Ping me on [twitter](http://twitter.com/timur_carpeev) or follow for updates.
 1. Open Console app `Applications/Utilities/Console`
 2. Type Sketch In filter box [like so](https://raw.githubusercontent.com/timuric/Content-generator-sketch-plugin/master/tutorial/console.png)
 3. Run broken plugin
-4. Submit output of the Console app via [Github issues](https://github.com/timuric/Content-generator-sketch-plugin/issues) or [twitter](http://twitter.com/timur_carpeev) toghether with the version of your Sketch app
+4. Submit output of the Console app via [Github issues](https://github.com/timuric/Content-generator-sketch-plugin/issues) or [twitter](http://twitter.com/timur_carpeev) together with the version of your Sketch app
 
 
 ## Contributors
